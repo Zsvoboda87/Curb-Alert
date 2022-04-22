@@ -4,9 +4,13 @@ const dateFormat = require('../utils/dateFormat');
 
 const postSchema = new Schema(
   {
+    itemTitle: {
+      type: String,
+      required: 'Enter a Title'
+    },
     itemDescription: {
       type: String,
-      required: 'You need to leave a thought!',
+      required: 'Please Describe the Item',
       minlength: 1,
       maxlength: 280
     },

@@ -16,6 +16,7 @@ type User {
 
   type Post {
     _id: ID
+    itemTitle: String!
     itemDescription: String!
     imageURL: String
     createdAt: String
@@ -45,7 +46,7 @@ type User {
     
     updateProfile( userImage: String, userDescription: String): User
     
-    addPost(itemDescription: String!, imageURL: String): Post
+    addPost(itemTitle: String!, itemDescription: String!, imageURL: String): Post
     removePost(_id: String): User
     
     addReaction(_id: ID!, reactionBody: String!): Post
