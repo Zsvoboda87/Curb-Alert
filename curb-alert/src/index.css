@@ -1,0 +1,81 @@
+main {
+	margin: 0 auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:root{
+  --primary-color: #E5E8B6;
+  --secondary-color: #B4C4AE;
+  --tertiary-color: #395E66;
+  --accent-color: #963D5A;
+}
+
+.main-row{
+  height: 100vh;
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.logo{
+  width: 12%;
+}
+
+.profile-section{
+  background-color: var(--secondary-color);
+}
+
+.profile-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profileImage{
+  width: 200px;
+}
+
+#profile-button{
+  background-color: var(--primary-color);
+  border: 2px solid var(--secondary-color);
+  color: var(--tertiary-color);
+  width: 55%;
+}
+
+#profile-button:hover{
+  background-color: var(--tertiary-color);
+  color: var(--primary-color)
+}
+
+.feed{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1{
+  font-family: 'Work Sans', sans-serif;
+}
+
+#feed-item{
+  background-color: var(--secondary-color);
+  border: 2px solid var(--secondary-color);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#feed-button{
+  background-color: var(--primary-color);
+  border: var(--secondary-color);
+  color: var(--tertiary-color)
+}
+
+#feed-button:hover{
+  background-color: var(--tertiary-color);
+  color: var(--primary-color)
+}
