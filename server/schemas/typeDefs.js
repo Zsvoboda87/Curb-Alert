@@ -42,9 +42,13 @@ type User {
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    addPost(postText: String!): Post
-    addReaction(postId: ID!, reactionBody: String!): Post
-    addFriend(friendId: ID!): User
+    updateUser( userImage: String, userDescription: String): User
+    
+    addPost(itemDescription: String!, imageURL: String): Post
+    removePost(_id: String): User
+    
+    addReaction(_id: ID!, reactionBody: String!): Post
+    
   }
 
   type Auth {

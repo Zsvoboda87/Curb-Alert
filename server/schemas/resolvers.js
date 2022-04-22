@@ -57,6 +57,19 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
+        updateUser: async (parent, args, context) => {
+            const updatedUser = args
+            console.log(updatedUser)
+            if (context.user) {
+                return await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { userDescription: updatedUser.userDescription },
+                    { new: true });
+
+            }
+
+            throw new AuthenticationError('Not logged in');
+        },
         addPost: async (parent, args, context) => {
             if (context.user) {
                 const post = await Post.create({ ...args, username: context.user.username });
@@ -71,6 +84,18 @@ const resolvers = {
             }
 
             throw new AuthenticationError('You need to be logged in!');
+        },
+        removePost: async (parent, { _id }, context) => {
+            const postid = _id;
+            if (context.user) {
+                const updatedUser = await User.findByIdAndUpdate(
+                    { _id: context.user._id },
+                    { $pull: { posts: { _id: postid } } },
+                    { new: true }
+                )
+                console.log(postid)
+                return updatedUser
+            }
         },
         addReaction: async (parent, { postId, reactionBody }, context) => {
             if (context.user) {
