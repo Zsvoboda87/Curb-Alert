@@ -57,13 +57,12 @@ const resolvers = {
             const token = signToken(user);
             return { token, user };
         },
-        updateUser: async (parent, args, context) => {
-            const updatedUser = args
-            console.log(updatedUser)
+        updateProfile: async (parent, args, context) => {
+
             if (context.user) {
                 return await User.findByIdAndUpdate(
                     { _id: context.user._id },
-                    { userDescription: updatedUser.userDescription },
+                    args,
                     { new: true });
 
             }
