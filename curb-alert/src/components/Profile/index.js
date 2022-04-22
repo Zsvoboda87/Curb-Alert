@@ -9,6 +9,6 @@ function Profile () {
             <Button id="profile-button">Messages</Button>
         </div>
     );
-}
+} 
 
 export default Profile;
