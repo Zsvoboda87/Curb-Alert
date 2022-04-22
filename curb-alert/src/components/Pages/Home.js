@@ -1,16 +1,22 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
+import Feed from '../Feed/index.js';
+import Profile from '../Profile/index.js';
 
 
 function Home () {
     return (
-        <Row>
-            <Col>
-                <h1>Logo and profile</h1>
+        <Row className="main-row">
+            <Col className="profile-section">
+                <div className="header">
+                    <img className='logo' src="../images/logo.png" />
+                    <h1>Curb Alert</h1>
+                </div>
+                <Profile />
             </Col>
             
-            <Col>
-                <h1>Main Feed</h1>
+            <Col xs={6} className="feed">
+                <Feed />
             </Col>
             
             <Col>
