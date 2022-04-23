@@ -4,7 +4,7 @@ import Feed from '../Feed/index.js';
 import Profile from '../Profile/index.js';
 
 
-function Home () {
+function Home() {
     return (
         <Row className="main-row">
             <Col className="profile-section">
@@ -14,11 +14,11 @@ function Home () {
                 </div>
                 <Profile />
             </Col>
-            
+
             <Col xs={6} className="feed">
                 <Feed />
             </Col>
-            
+
             <Col>
                 <h1>weather</h1>
             </Col>
