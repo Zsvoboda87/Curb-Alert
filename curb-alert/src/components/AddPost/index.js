@@ -1,9 +1,64 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../../utils/mutations';
+import {
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+    ModalCloseButton,
+    useDisclosure
+} from '@chakra-ui/react'
+
+import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
 
 
-function AddPost() {
+// function AddPost() {
+
+
+//     return (
+//         <div>
+//             <label>Item Title</label>
+//             <input
+//                 type="text"
+//                 value={itemTitle}
+//                 onChange={handleTitleChange}
+//             ></input>
+//             <label>Item Description</label>
+//             <input
+//                 type="text"
+//                 value={itemDescription}
+//                 onChange={handleDescriptionChange}
+//             ></input>
+//             <label>Item Category</label>
+//             <input
+//                 type="text"
+//                 value={itemCategory}
+//                 onChange={handleCategoryChange}
+//             ></input>
+
+//             <input type="file" onChange={(e) => setImage(e.target.files[0])}></input>
+//             <button onClick={handleFormSubmit}>/Submit</button>
+//             <div>
+//                 <img src={imageURL} alt="uploaded" />
+
+//             </div>
+//         </div >
+//     )
+
+
+
+// }
+
+// export default AddPost;
+
+export default function InitialFocus() {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
+    const initialRef = React.useRef()
+    const finalRef = React.useRef()
 
     const [image, setImage] = useState("");
     const [imageURL, setImageURL] = useState("");
@@ -32,6 +87,18 @@ function AddPost() {
         }
     };
 
+    const uploadImage = () => {
+        const data = new FormData()
+        data.append("file", image)
+        data.append("upload_preset", "zmzaqmwv")
+        data.append("cloud_name", "dqxbjpdda")
+        return fetch("https://api.cloudinary.com/v1_1/dqxbjpdda/image/upload",
+            {
+                method: "post",
+                body: data
+            })
+    }
+
     const handleFormSubmit = async event => {
         event.preventDefault();
         const responseData = await uploadImage()
@@ -51,50 +118,58 @@ function AddPost() {
 
 
 
-    const uploadImage = () => {
-        const data = new FormData()
-        data.append("file", image)
-        data.append("upload_preset", "zmzaqmwv")
-        data.append("cloud_name", "dqxbjpdda")
-        return fetch("https://api.cloudinary.com/v1_1/dqxbjpdda/image/upload",
-            {
-                method: "post",
-                body: data
-            })
-    }
-
     return (
-        <div>
-            <label>Item Title</label>
-            <input
-                type="text"
-                value={itemTitle}
-                onChange={handleTitleChange}
-            ></input>
-            <label>Item Description</label>
-            <input
-                type="text"
-                value={itemDescription}
-                onChange={handleDescriptionChange}
-            ></input>
-            <label>Item Category</label>
-            <input
-                type="text"
-                value={itemCategory}
-                onChange={handleCategoryChange}
-            ></input>
+        <>
+            <Button onClick={onOpen}>Open Modal</Button>
+            <Button ml={4} ref={finalRef}>
+                I'll receive focus on close
+            </Button>
 
-            <input type="file" onChange={(e) => setImage(e.target.files[0])}></input>
-            <button onClick={handleFormSubmit}>/Submit</button>
-            <div>
-                <img src={imageURL} alt="uploaded" />
+            <Modal
+                initialFocusRef={initialRef}
+                finalFocusRef={finalRef}
+                isOpen={isOpen}
+                onClose={onClose}
+            >
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>Create your account</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody pb={6}>
+                        <FormControl>
+                            <FormLabel>Item Title</FormLabel>
+                            <Input ref={initialRef} placeholder='Post Title'
+                                type="text"
+                                value={itemTitle}
+                                onChange={handleTitleChange} />
+                        </FormControl>
+                        <FormControl mt={4}>
+                            <FormLabel>itemDescription</FormLabel>
+                            <Input placeholder='Describe this item'
+                                type="text"
+                                value={itemDescription}
+                                onChange={handleDescriptionChange} />
+                        </FormControl>
+                        <FormControl mt={4}>
+                            <FormLabel>Category</FormLabel>
+                            <Input placeholder='Select a Category'
+                                type="text"
+                                value={itemCategory}
+                                onChange={handleCategoryChange} />
+                        </FormControl>
+                        <Input type="file" onChange={(e) => setImage(e.target.files[0])} />
 
-            </div>
-        </div >
+                    </ModalBody>
+
+                    <ModalFooter>
+                        <Button colorScheme='blue' mr={3}
+                            onClick={handleFormSubmit && onClose} >
+                            Upload Post!
+                        </Button>
+                        <Button onClick={onClose}>Cancel</Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
+        </>
     )
-
-
-
 }
-
-export default AddPost;
