@@ -12,9 +12,10 @@ function Feed() {
 
         posts.map(post =>
             <Card id="feed-item" style={{ width: '35rem' }}>
-                <Card.Img variant="top" src="../images/sofa.jpeg" />
+                <Card.Img variant="top" src={post.imageURL} />
                 <Card.Body>
-                    <Card.Title>{post.imageURL}</Card.Title>
+                    <Card.Title>{post.itemTitle}</Card.Title>
+                    <Card.Title>{post.itemCategory}</Card.Title>
                     <Card.Text>
                         {post.itemDescription}
                     </Card.Text>

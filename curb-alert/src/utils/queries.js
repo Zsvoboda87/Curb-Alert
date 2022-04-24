@@ -4,20 +4,15 @@ export const QUERY_USERS = gql`
 query  {
     users {
       username
-      
+      userDescription
+      userImage
       email
       posts {
         _id
-        itemDescription
         itemTitle
+        itemDescription
+        itemCategory
         createdAt
-        reactionCount
-        reactions {
-           _id
-        createdAt
-        username
-        reactionBody
-        }
       }
     }
   }
@@ -28,17 +23,11 @@ export const QUERY_POSTS = gql`
 query  {
     posts {
       _id
-      username
-      
+      itemTitle
       itemDescription
+      itemCategory
+      imageURL
       createdAt
-      reactionCount
-      reactions {
-         _id
-      createdAt
-      username
-      reactionBody
-      }
     }
   }
 `

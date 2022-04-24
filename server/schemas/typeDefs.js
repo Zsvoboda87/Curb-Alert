@@ -1,4 +1,3 @@
-// import the gql tagged template function
 const { gql } = require('apollo-server-express');
 
 
@@ -19,18 +18,12 @@ type User {
     itemTitle: String!
     itemDescription: String!
     imageURL: String
+    itemCategory: String
     createdAt: String
     username: String
-    reactionCount: Int
-    reactions: [Reaction]
+ 
   }
 
-  type Reaction {
-    _id: ID
-    reactionBody: String
-    createdAt: String
-    username: String
-  }
 
   type Query {
     me: User
@@ -46,7 +39,7 @@ type User {
     
     updateProfile( userImage: String, userDescription: String): User
     
-    addPost(itemTitle: String!, itemDescription: String!, imageURL: String): Post
+    addPost(itemTitle: String!, itemDescription: String!, imageURL: String, itemCategory:String): Post
     removePost(_id: String): User
     
     addReaction(_id: ID!, reactionBody: String!): Post

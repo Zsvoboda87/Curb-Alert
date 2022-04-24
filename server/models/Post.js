@@ -1,5 +1,5 @@
 const { Schema, model } = require('mongoose');
-const reactionSchema = require('./Reaction');
+// const commentSchema = require('');
 const dateFormat = require('../utils/dateFormat');
 
 const postSchema = new Schema(
@@ -17,6 +17,9 @@ const postSchema = new Schema(
     imageURL: {
       type: String
     },
+    itemCategory: {
+      type: String
+    },
     createdAt: {
       type: Date,
       default: Date.now,
@@ -26,7 +29,7 @@ const postSchema = new Schema(
       type: String,
       required: true
     },
-    reactions: [reactionSchema]
+    // comments: [commentSchema]
   },
   {
     toJSON: {
