@@ -54,7 +54,7 @@ import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
 
 // export default AddPost;
 
-export default function InitialFocus() {
+export default function AddPost() {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const initialRef = React.useRef()
@@ -121,9 +121,6 @@ export default function InitialFocus() {
     return (
         <>
             <Button onClick={onOpen}>Open Modal</Button>
-            <Button ml={4} ref={finalRef}>
-                I'll receive focus on close
-            </Button>
 
             <Modal
                 initialFocusRef={initialRef}
@@ -133,7 +130,7 @@ export default function InitialFocus() {
             >
                 <ModalOverlay />
                 <ModalContent>
-                    <ModalHeader>Create your account</ModalHeader>
+                    <ModalHeader>Add an Item to the CURB</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody pb={6}>
                         <FormControl>
