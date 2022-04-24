@@ -1,0 +1,25 @@
+{
+  "name": "curb-alert",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd curb-alert && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zsvoboda87/Curb-Alert.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zsvoboda87/Curb-Alert/issues"
+  },
+  "homepage": "https://github.com/Zsvoboda87/Curb-Alert#readme",
+  "devDependencies": {
+    "concurrently": "^7.1.0"
+  }
+}

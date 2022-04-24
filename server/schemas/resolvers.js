@@ -87,15 +87,9 @@ const resolvers = {
             throw new AuthenticationError('You need to be logged in!');
         },
         removePost: async (parent, { _id }, context) => {
-            const postid = _id;
+
             if (context.user) {
-                const updatedUser = await User.findByIdAndUpdate(
-                    { _id: context.user._id },
-                    { $pull: { posts: { _id: postid } } },
-                    { new: true }
-                )
-                console.log(postid)
-                return updatedUser
+                await Post.findOneAndDelete({ _id })
             }
         },
         addReaction: async (parent, { postId, reactionBody }, context) => {
