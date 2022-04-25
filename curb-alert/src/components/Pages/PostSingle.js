@@ -5,6 +5,7 @@ import { QUERY_POST } from '../../utils/queries';
 import { Card, Button } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
+import CardHeader from 'react-bootstrap/esm/CardHeader';
 
 export default function PostSingle() {
     const { id: postId } = useParams();
@@ -22,9 +23,12 @@ export default function PostSingle() {
     return (
         <div>
             <Card id="feed-item" style={{ width: '35rem' }}>
-                <Link to={`/`}>
-                    <Button id="feed-button" variant="primary">Back to the Curb</Button>
-                </Link>
+                <CardHeader >
+                    <Button id="feed-button" variant="primary">Message the Owner</Button>
+                    <Link to={`/`}>
+                        <Button id="feed-button" variant="primary">Back to the Curb</Button>
+                    </Link>
+                </CardHeader>
                 <Card.Img variant="top" src={post.imageURL} />
                 <Card.Body>
                     <Card.Title>{post.itemTitle}</Card.Title>
@@ -32,7 +36,7 @@ export default function PostSingle() {
                     <Card.Text>
                         {post.itemDescription}
                     </Card.Text>
-                    <Button id="feed-button" variant="primary">Message or mark as taken?</Button>
+
                 </Card.Body>
             </Card>
 
