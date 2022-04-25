@@ -7,7 +7,6 @@ import Profile from '../Profile/index.js';
 import PostSingle from './PostSingle.js';
 
 
-
 function Home() {
     return (
         <Row className="main-row">
@@ -20,7 +19,8 @@ function Home() {
             </Col>
 
             <Col xs={6} className="feed">
-                <Feed />
+                <Route exact path="/" component={Feed} />
+                <Route exact path="/post/:id" component={PostSingle} />
             </Col>
 
             <Col>

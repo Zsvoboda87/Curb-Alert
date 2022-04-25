@@ -24,15 +24,15 @@ function Feed() {
                 <Link to={`/post/${post._id}`}>
                     <Card.Img variant="top" src={post.imageURL} />
                     <Card.Body>
-                        <Card.Title>{post._id}</Card.Title>
+                        <Card.Title>{post.itemTitle}</Card.Title>
                         <Card.Title>{post.itemCategory}</Card.Title>
-                        <Card.Text>
+                        {/* <Card.Text>
                             {post.itemDescription}
-                        </Card.Text>
-                        <Button id="feed-button" variant="primary">Message or mark as taken?</Button>
+                        </Card.Text> */}
+                        {/* <Button id="feed-button" variant="primary">Message or mark as taken?</Button> */}
                     </Card.Body>
                 </Link>
-            </Card>)
+            </Card >)
 
     );
 }
