@@ -69,7 +69,7 @@ export default function AddPost() {
         const imageUrlData = await responseData.json()
         console.log(imageUrlData.url)
         setImageURL(imageUrlData.url)
-
+        onClose()
         try {
             await addPost({
                 variables: { itemTitle, itemDescription, imageURL, itemCategory }
@@ -135,7 +135,8 @@ export default function AddPost() {
 
                     <ModalFooter justifyContent="center">
                         <Button id="profile-button" colorScheme='blue' mr={3}
-                            onClick={handleFormSubmit && onClose} >
+                            onClick={handleFormSubmit}
+                        >
                             Upload Post!
                         </Button>
                     </ModalFooter>
