@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useMutation } from '@apollo/client';
+
 
 import {
     Modal,
@@ -22,10 +24,7 @@ function SignUp() {
   
     return (
       <>
-        <Button onClick={onOpen}>Open Modal</Button>
-        <Button ml={4} ref={finalRef}>
-          I'll receive focus on close
-        </Button>
+        <Button id="profile-button" onClick={onOpen}>Sign Up</Button>
   
         <Modal
           initialFocusRef={initialRef}
