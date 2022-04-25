@@ -21,5 +21,8 @@
   "homepage": "https://github.com/Zsvoboda87/Curb-Alert#readme",
   "devDependencies": {
     "concurrently": "^7.1.0"
+  },
+  "dependencies": {
+    "react-router-dom": "^5.3.1"
   }
 }

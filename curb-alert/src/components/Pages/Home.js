@@ -2,6 +2,8 @@ import React from 'react';
 import { Row, Col } from 'react-bootstrap';
 import Feed from '../Feed/index.js';
 import Profile from '../Profile/index.js';
+import PostSingle from './PostSingle.js';
+
 
 
 function Home() {

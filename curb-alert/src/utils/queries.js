@@ -38,10 +38,8 @@ query post($id: ID!) {
     _id
     itemTitle
     itemDescription
-    imageURL
     itemCategory
-    createdAt
-    username 
+    imageURL
     }
   }
 `;

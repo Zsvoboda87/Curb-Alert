@@ -3,6 +3,9 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 import { ChakraProvider } from '@chakra-ui/react'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import PostSingle from './components/Pages/PostSingle';
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
@@ -18,7 +21,13 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <ChakraProvider>
-        <Home />
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/post/:id" component={PostSingle} />
+            {/* <Route component={NoMatch} /> */}
+          </Switch>
+        </Router>
       </ChakraProvider>
     </ApolloProvider>
   );
