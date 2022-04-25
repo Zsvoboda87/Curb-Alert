@@ -71,8 +71,9 @@ function SignUp() {
             <ModalBody pb={6}>
               <FormControl>
                 <FormLabel>Username</FormLabel>
-                <Input ref={initialRef} placeholder='Username' 
-                type="username" 
+                <Input placeholder='Username' 
+                type="text" 
+                name="username"
                 value={formState.username}
                 onChange={handleChange}/>
               </FormControl>
