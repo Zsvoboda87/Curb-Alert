@@ -12,7 +12,8 @@ import {
     useDisclosure
 } from '@chakra-ui/react'
 
-import { Button, FormControl, FormLabel, Input, Select, Textarea } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Select, Textarea, Flex } from '@chakra-ui/react';
+import { Button } from 'react-bootstrap';
 
 
 
@@ -104,13 +105,6 @@ export default function AddPost() {
                                 onChange={handleTitleChange} />
                         </FormControl>
                         <FormControl mt={4}>
-                            <FormLabel>Write a Description of </FormLabel>
-                            <Textarea placeholder='Describe this item'
-                                type="text"
-                                value={itemDescription}
-                                onChange={handleDescriptionChange} />
-                        </FormControl>
-                        <FormControl mt={4}>
                             <FormLabel>Category</FormLabel>
 
                             <Select placeholder='Select option'
@@ -126,18 +120,26 @@ export default function AddPost() {
                                 <option value='other'>Other</option>
                             </Select>
                         </FormControl>
+                        <FormControl mt={4}>
+                            <FormLabel>Description of Item</FormLabel>
+                            <Textarea placeholder='Describe this item'
+                                type="text"
+                                value={itemDescription}
+                                onChange={handleDescriptionChange} />
+                        </FormControl>
                         <FormLabel>Upload an Image:</FormLabel>
                         <Input type="file" onChange={(e) => setImage(e.target.files[0])} />
 
                     </ModalBody>
 
-                    <ModalFooter>
+
+                    <ModalFooter justifyContent="center">
                         <Button id="profile-button" colorScheme='blue' mr={3}
                             onClick={handleFormSubmit && onClose} >
                             Upload Post!
                         </Button>
-
                     </ModalFooter>
+
                 </ModalContent>
             </Modal>
         </>

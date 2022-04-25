@@ -31,3 +31,17 @@ query  {
     }
   }
 `
+
+export const QUERY_POST = gql`
+query post($id: ID!) {
+  post(_id: $id) {
+    _id
+    itemTitle
+    itemDescription
+    imageURL
+    itemCategory
+    createdAt
+    username 
+    }
+  }
+`;
