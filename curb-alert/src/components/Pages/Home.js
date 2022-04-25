@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import { Row, Col } from 'react-bootstrap';
 import Feed from '../Feed/index.js';
 import Profile from '../Profile/index.js';
