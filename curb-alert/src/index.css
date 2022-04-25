@@ -13,6 +13,11 @@ main {
   --accent-color: #963D5A;
 }
 
+h1{
+  font-family: 'Work Sans', sans-serif;
+}
+
+
 .main-row{
   height: 100vh;
 }
@@ -21,10 +26,16 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding: 2%
+}
+
+.title{
+  font-size: 1.5rem;
+  padding: 3%
 }
 
 .logo{
-  width: 12%;
+  width: 15%;
 }
 
 .profile-section{
@@ -57,10 +68,6 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
-}
-
-h1{
-  font-family: 'Work Sans', sans-serif;
 }
 
 #feed-item{

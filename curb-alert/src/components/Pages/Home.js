@@ -13,19 +13,16 @@ function Home() {
             <Col className="profile-section">
                 <div className="header">
                     <img className='logo' src="../images/logo.png" />
-                    <h1>Curb Alert</h1>
+                    <h1 className="title">Curb Alert</h1>
                 </div>
                 <Profile />
             </Col>
 
-            <Col xs={6} className="feed">
+            <Col xs={12} md={9} className="feed">
                 <Route exact path="/" component={Feed} />
                 <Route exact path="/post/:id" component={PostSingle} />
             </Col>
 
-            <Col>
-                <h1>weather</h1>
-            </Col>
         </Row>
     );
 }

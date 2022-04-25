@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import AddPost from '../AddPost'
 import Login from '../Login';
 import SignUp from '../Signup'
