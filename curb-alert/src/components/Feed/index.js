@@ -2,6 +2,14 @@ import React from "react";
 import { Card, Button } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import { QUERY_POSTS } from '../../utils/queries'
+import AddPost from '../AddPost'
+
+import { Link } from 'react-router-dom'
+
+
+
+
+
 
 function Feed() {
     const { loading, data } = useQuery(QUERY_POSTS);
@@ -11,16 +19,21 @@ function Feed() {
     return (
 
         posts.map(post =>
+
             <Card id="feed-item" style={{ width: '35rem' }}>
-                <Card.Img variant="top" src="../images/sofa.jpeg" />
-                <Card.Body>
-                    <Card.Title>{post.imageURL}</Card.Title>
-                    <Card.Text>
-                        {post.itemDescription}
-                    </Card.Text>
-                    <Button id="feed-button" variant="primary">Message or mark as taken?</Button>
-                </Card.Body>
-            </Card>)
+                <Link to={`/post/${post._id}`}>
+                    <Card.Img variant="top" src={post.imageURL} />
+                    <Card.Body>
+                        <Card.Title>{post.itemTitle}</Card.Title>
+                        <Card.Title>{post.itemCategory}</Card.Title>
+                        {/* <Card.Text>
+                            {post.itemDescription}
+                        </Card.Text> */}
+                        {/* <Button id="feed-button" variant="primary">Message or mark as taken?</Button> */}
+                    </Card.Body>
+                </Link>
+            </Card >)
+
     );
 }
 

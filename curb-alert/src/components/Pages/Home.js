@@ -1,7 +1,10 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import { Row, Col } from 'react-bootstrap';
 import Feed from '../Feed/index.js';
 import Profile from '../Profile/index.js';
+import PostSingle from './PostSingle.js';
 
 
 function Home() {
@@ -16,7 +19,8 @@ function Home() {
             </Col>
 
             <Col xs={6} className="feed">
-                <Feed />
+                <Route exact path="/" component={Feed} />
+                <Route exact path="/post/:id" component={PostSingle} />
             </Col>
 
             <Col>
