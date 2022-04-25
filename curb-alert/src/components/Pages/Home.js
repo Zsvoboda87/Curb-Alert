@@ -1,5 +1,5 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Button, Col } from 'react-bootstrap';
 import Feed from '../Feed/index.js';
 import Profile from '../Profile/index.js';
 
@@ -13,6 +13,10 @@ function Home() {
                     <h1>Curb Alert</h1>
                 </div>
                 <Profile />
+                <div>
+                    <Button>Login</Button>
+                    <Button>Sign Up</Button>
+                </div>
             </Col>
 
             <Col xs={6} className="feed">
