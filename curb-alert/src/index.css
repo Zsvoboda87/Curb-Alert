@@ -63,6 +63,10 @@ h1{
   font-family: 'Work Sans', sans-serif;
 }
 
+#postSingle-header{
+  
+}
+
 #feed-item{
   background-color: var(--secondary-color);
   border: 2px solid var(--secondary-color);

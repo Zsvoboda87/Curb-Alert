@@ -23,7 +23,7 @@ export default function PostSingle() {
     return (
         <div>
             <Card id="feed-item" style={{ width: '35rem' }}>
-                <CardHeader >
+                <CardHeader id="postSingle-header" >
                     <Button id="feed-button" variant="primary">Message the Owner</Button>
                     <Link to={`/`}>
                         <Button id="feed-button" variant="primary">Back to the Curb</Button>
