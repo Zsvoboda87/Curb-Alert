@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { ADD_USER } from '../../utils/mutations';
+import { LOGIN_USER } from '../../utils/mutations';
 
 import {
     Modal,
@@ -16,27 +16,23 @@ import {
 import { FormControl, FormLabel, Input} from '@chakra-ui/react';
 import { Button } from 'react-bootstrap';
 
-function SignUp() {
+
+function Login() {
     const { isOpen, onOpen, onClose } = useDisclosure()
   
     const initialRef = React.useRef()
     const finalRef = React.useRef()
 
-    const [formState, setFormState] = useState({
-        username: '',
-        email: '',
-        password: '',
-      });
-    
-    const [addUser, { error }] = useMutation(ADD_USER);
+    const [formState, setFormState] = useState({ email: '', password: ''});
+    const [login, { error }] = useMutation(LOGIN_USER);
 
     //update state based on form input changes
     const handleChange = (event) => {
-        const{ name, value } = event.target;
-          
+        const { name, value } = event.target;
+
         setFormState({
             ...formState,
-            [name]: value
+            [name]: value,
         });
     };
 
@@ -45,18 +41,24 @@ function SignUp() {
         event.preventDefault();
 
         try {
-            const { data } = await addUser({
+            const { data } = await login({
                 variables: { ...formState },
             });
-            //Auth.login(data.addUser.token)
-        } catch(e) {
+            // Auth.login(data.login.token);
+        } catch (e) {
             console.error(e);
         }
+
+        //clear form values
+        setFormState({
+            email: '',
+            password: '',
+        });
     };
   
     return (
       <>
-        <Button id="profile-button" onClick={onOpen}>Sign Up</Button>
+        <Button id="profile-button" onClick={onOpen}>Login</Button>
   
         <Modal
           initialFocusRef={initialRef}
@@ -66,16 +68,9 @@ function SignUp() {
         >
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader>Create your Curb Alert account</ModalHeader>
+            <ModalHeader>Log into your account</ModalHeader>
             <ModalCloseButton />
             <ModalBody pb={6}>
-              <FormControl>
-                <FormLabel>Username</FormLabel>
-                <Input ref={initialRef} placeholder='Username' 
-                type="username" 
-                value={formState.username}
-                onChange={handleChange}/>
-              </FormControl>
   
               <FormControl mt={4}>
                 <FormLabel>Email</FormLabel>
@@ -99,7 +94,7 @@ function SignUp() {
             </ModalBody>
   
             <ModalFooter justifyContent="center">
-              <Button id="profile-button" onClick={handleFormSubmit && onClose}>Sign up</Button>
+              <Button id="profile-button" onClick={handleFormSubmit && onClose}>Log in</Button>
             </ModalFooter>
           </ModalContent>
         </Modal>
@@ -107,4 +102,4 @@ function SignUp() {
     )
   }
 
-  export default SignUp;
+  export default Login;
