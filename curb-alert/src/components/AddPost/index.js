@@ -12,7 +12,8 @@ import {
     useDisclosure
 } from '@chakra-ui/react'
 
-import { Button, FormControl, FormLabel, Input } from '@chakra-ui/react';
+import { Button, FormControl, FormLabel, Input, Select, Textarea } from '@chakra-ui/react';
+
 
 
 export default function AddPost() {
@@ -103,17 +104,26 @@ export default function AddPost() {
                         </FormControl>
                         <FormControl mt={4}>
                             <FormLabel>Write a Description of </FormLabel>
-                            <Input placeholder='Describe this item'
+                            <Textarea placeholder='Describe this item'
                                 type="text"
                                 value={itemDescription}
                                 onChange={handleDescriptionChange} />
                         </FormControl>
                         <FormControl mt={4}>
                             <FormLabel>Category</FormLabel>
-                            <Input placeholder='Select a Category'
-                                type="text"
-                                value={itemCategory}
-                                onChange={handleCategoryChange} />
+
+                            <Select placeholder='Select option'
+                                onChange={handleCategoryChange} >
+                                <option value='furniture'>Furniture</option>
+                                <option value='home and garden'>Home and Garden</option>
+                                <option value='plants'>Plants</option>
+                                <option value='pet supplies'>Pet Supplies</option>
+                                <option value='sports equipment'>Sports Equipment</option>
+                                <option value='building materials'>Building Materials</option>
+                                <option value='office supplies'>Office Supplies</option>
+                                <option value='tools'>Tools</option>
+                                <option value='other'>Other</option>
+                            </Select>
                         </FormControl>
                         <FormLabel>Upload an Image:</FormLabel>
                         <Input type="file" onChange={(e) => setImage(e.target.files[0])} />
