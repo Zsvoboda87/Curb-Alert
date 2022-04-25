@@ -16,6 +16,7 @@ import { Button, FormControl, FormLabel, Input, Select, Textarea } from '@chakra
 
 
 
+
 export default function AddPost() {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -82,7 +83,7 @@ export default function AddPost() {
 
     return (
         <>
-            <Button onClick={onOpen}>Add an Item</Button>
+            <Button id="profile-button" onClick={onOpen}>Add an Item</Button>
 
             <Modal
                 initialFocusRef={initialRef}
@@ -131,11 +132,11 @@ export default function AddPost() {
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button colorScheme='blue' mr={3}
+                        <Button id="profile-button" colorScheme='blue' mr={3}
                             onClick={handleFormSubmit && onClose} >
                             Upload Post!
                         </Button>
-                        <Button onClick={onClose}>Cancel</Button>
+
                     </ModalFooter>
                 </ModalContent>
             </Modal>
