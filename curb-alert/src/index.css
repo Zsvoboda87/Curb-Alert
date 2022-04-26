@@ -17,6 +17,17 @@ h1{
   font-family: 'Work Sans', sans-serif;
 }
 
+.flex-space-betweeen{
+  display: flex;
+  justify-content: space-between
+}
+
+.flex-center{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+ align-items: center;
+}
 
 .main-row{
   height: 100vh;
@@ -70,17 +81,6 @@ h1{
   flex-direction: column;
 }
 
-<<<<<<< HEAD
-h1{
-  font-family: 'Work Sans', sans-serif;
-}
-
-#postSingle-header{
-  
-}
-
-=======
->>>>>>> 0a72b8c2d26d6b383e0bd42558e0867dc952370f
 #feed-item{
   background-color: var(--secondary-color);
   border: 2px solid var(--secondary-color);

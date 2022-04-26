@@ -23,21 +23,23 @@ export default function PostSingle() {
     return (
         <div>
             <Card id="feed-item" style={{ width: '35rem' }}>
-                <CardHeader id="postSingle-header" >
+
+                <Card.Body className='flex-center'>
+                    <Card.Title>{post.itemTitle}</Card.Title>
+
+                    <Card.Text>
+                        {post.itemDescription}
+                    </Card.Text>
+                </Card.Body>
+                <Card.Img variant="top" src={post.imageURL} />
+
+                <CardHeader id="postSingle-header" className='flex-space-betweeen' >
                     <Button id="feed-button" variant="primary">Message the Owner</Button>
                     <Link to={`/`}>
                         <Button id="feed-button" variant="primary">Back to the Curb</Button>
                     </Link>
                 </CardHeader>
-                <Card.Img variant="top" src={post.imageURL} />
-                <Card.Body>
-                    <Card.Title>{post.itemTitle}</Card.Title>
-                    <Card.Title>{post.itemCategory}</Card.Title>
-                    <Card.Text>
-                        {post.itemDescription}
-                    </Card.Text>
 
-                </Card.Body>
             </Card>
 
 
