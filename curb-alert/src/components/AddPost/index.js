@@ -14,6 +14,7 @@ import {
 
 import { FormControl, FormLabel, Input, Select, Textarea, Flex } from '@chakra-ui/react';
 import { Button } from 'react-bootstrap';
+import { QUERY_POSTS } from '../../utils/queries';
 
 
 
@@ -31,7 +32,18 @@ export default function AddPost() {
     const [itemDescription, setItemDescription] = useState('')
     const [itemCategory, setItemCategory] = useState('')
 
-    const [addPost, { error }] = useMutation(ADD_POST)
+    const [addPost, { error }] = useMutation(ADD_POST, {
+        update(cache, { data: { addPost } }) {
+            // read what's currently in the cache
+            const { posts } = cache.readQuery({ query: QUERY_POSTS });
+
+            // prepend the newest thought to the front of the array
+            cache.writeQuery({
+                query: QUERY_POSTS,
+                data: { posts: [addPost, ...posts] }
+            });
+        }
+    })
 
 
     const handleTitleChange = event => {
@@ -67,12 +79,12 @@ export default function AddPost() {
         event.preventDefault();
         const responseData = await uploadImage()
         const imageUrlData = await responseData.json()
-        console.log(imageUrlData.url)
-        setImageURL(imageUrlData.url)
         onClose()
+
+
         try {
             await addPost({
-                variables: { itemTitle, itemDescription, imageURL, itemCategory }
+                variables: { itemTitle, itemDescription, imageURL: imageUrlData.url, itemCategory }
             });
         } catch (e) {
             console.error(e);
@@ -109,13 +121,13 @@ export default function AddPost() {
 
                             <Select placeholder='Select option'
                                 onChange={handleCategoryChange} >
+                                <option value='building materials'>Building Materials</option>
+                                <option value='clothing'>Clothing</option>
                                 <option value='furniture'>Furniture</option>
                                 <option value='home and garden'>Home and Garden</option>
-                                <option value='plants'>Plants</option>
+                                <option value='office supplies'>Office Supplies</option>
                                 <option value='pet supplies'>Pet Supplies</option>
                                 <option value='sports equipment'>Sports Equipment</option>
-                                <option value='building materials'>Building Materials</option>
-                                <option value='office supplies'>Office Supplies</option>
                                 <option value='tools'>Tools</option>
                                 <option value='other'>Other</option>
                             </Select>

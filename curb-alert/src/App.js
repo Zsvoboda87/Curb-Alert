@@ -5,6 +5,7 @@ import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@ap
 import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter as Router, Route, Switch, } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
+import { setContext } from '@apollo/client/link/context';
 
 import PostSingle from './components/Pages/PostSingle';
 
@@ -14,8 +15,18 @@ const httpLink = createHttpLink({
   uri: 'http://localhost:3001/graphql',
 });
 
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
 const client = new ApolloClient({
-  link: httpLink,
+  link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
 
