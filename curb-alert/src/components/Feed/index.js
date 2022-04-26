@@ -19,8 +19,7 @@ function Feed() {
     return (
 
         posts.map(post =>
-
-            <Card id="feed-item" style={{ width: '35rem' }}>
+            < Card id="feed-item" style={{ width: '35rem' }}>
                 <Link to={`/post/${post._id}`}>
                     <Card.Img variant="top" src={post.imageURL} />
                     <Card.Body>
