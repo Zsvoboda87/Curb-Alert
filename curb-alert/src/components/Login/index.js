@@ -60,7 +60,7 @@ function Login() {
 
   return (
     <>
-      <Button id="profile-button" onClick={onOpen}>Login</Button>
+      <Button id="button" onClick={onOpen}>Login</Button>
 
       <Modal
         initialFocusRef={initialRef}
@@ -96,7 +96,7 @@ function Login() {
           </ModalBody>
 
           <ModalFooter justifyContent="center">
-            <Button id="profile-button" onClick={handleFormSubmit}>Log in</Button>
+            <Button id="button" onClick={handleFormSubmit}>Log in</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
