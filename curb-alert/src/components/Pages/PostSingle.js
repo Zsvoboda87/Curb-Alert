@@ -22,7 +22,7 @@ export default function PostSingle() {
 
     return (
         <div>
-            <Card id="feed-item" style={{ width: '35rem' }}>
+            <Card id="feed-item" style={{ width: '73vw' }} >
 
                 <Card.Body className='flex-center'>
                     <Card.Title>{post.itemTitle}</Card.Title>
@@ -43,7 +43,7 @@ export default function PostSingle() {
             </Card>
 
 
-        </div>
+        </div >
 
 
 

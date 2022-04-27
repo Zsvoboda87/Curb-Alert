@@ -33,15 +33,17 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <Router forceRefresh={true}>
-      <ApolloProvider client={client}>
+    <ApolloProvider client={client}>
+      <Router forceRefresh={true}>
         <ChakraProvider>
+          <Switch>
 
-          <Home></Home>
+            <Home></Home>
 
+          </Switch>
         </ChakraProvider>
-      </ApolloProvider>
-    </Router>
+      </Router>
+    </ApolloProvider>
   );
 }
 

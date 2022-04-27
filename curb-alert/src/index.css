@@ -17,6 +17,11 @@ h1{
   font-family: 'Work Sans', sans-serif;
 }
 
+.flex-wrap{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .flex-space-betweeen{
   display: flex;
   justify-content: space-between
@@ -78,7 +83,7 @@ h1{
 .feed{
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 #feed-item{
