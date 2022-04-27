@@ -96,7 +96,7 @@ export default function AddPost() {
 
     return (
         <>
-            <Button id="profile-button" onClick={onOpen}>Add an Item</Button>
+            <Button id="button" onClick={onOpen}>Add an Item</Button>
 
             <Modal
                 initialFocusRef={initialRef}
@@ -146,7 +146,7 @@ export default function AddPost() {
 
 
                     <ModalFooter justifyContent="center">
-                        <Button id="profile-button" colorScheme='blue' mr={3}
+                        <Button id="button" colorScheme='blue' mr={3}
                             onClick={handleFormSubmit}
                         >
                             Upload Post!

@@ -57,7 +57,7 @@ function SignUp() {
 
   return (
     <>
-      <Button id="profile-button" onClick={onOpen}>Sign Up</Button>
+      <Button id="button" onClick={onOpen}>Sign Up</Button>
 
       <Modal
         initialFocusRef={initialRef}
