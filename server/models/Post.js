@@ -4,62 +4,62 @@ const dateFormat = require('../utils/dateFormat');
 
 const ReplySchema = new Schema(
   {
-      //set custom id to avoid confusion with parent comment_id
-      replyId: {
-          type: Schema.Types.ObjectId,
-          default: () => Types.ObjectId()
-      },
-      replyBody: {
-          type: String,
-          required: true,
-          minlength: 1
-      },
-      username: {
-          type: String,
-          required: true,
-          trim: true
-      },
-      createdAt: {
-          type: Date,
-          default: Date.now,
-          get: createdAtVal => dateFormat(createdAtVal)
-      }
+    //set custom id to avoid confusion with parent comment_id
+    replyId: {
+      type: Schema.Types.ObjectId,
+      default: () => Types.ObjectId()
+    },
+    replyBody: {
+      type: String,
+      required: true,
+      minlength: 1
+    },
+    username: {
+      type: String,
+      required: true,
+      trim: true
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: createdAtVal => dateFormat(createdAtVal)
+    }
   },
   {
-      toJSON: {
-          getters: true
-      }
+    toJSON: {
+      getters: true
+    }
   }
 );
 
-const CommentSchema = new Schema (
+const CommentSchema = new Schema(
   {
-      //set custom id to avoid confusion with parent post_id
-      commentId: {
-        type: Schema.Types.ObjectId,
-        default: () => Types.ObjectId()
-      },
-      username: {
-          type: String,
-          required: true
-      },
-      commentBody: {
-          type: String,
-          minlength: 1
-      },
-      createdAt: {
-          type: Date,
-          default: Date.now,
-          get: createdAtVal => dateFormat(createdAtVal)
-      },
-      replies: [ReplySchema]
+    //set custom id to avoid confusion with parent post_id
+    commentId: {
+      type: Schema.Types.ObjectId,
+      default: () => Types.ObjectId()
+    },
+    username: {
+      type: String,
+      required: true
+    },
+    commentBody: {
+      type: String,
+      minlength: 1
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: createdAtVal => dateFormat(createdAtVal)
+    },
+    replies: [ReplySchema]
   },
   {
-      toJSON: {
-          virtuals: true,
-          getters: true
-      },
-      id: false
+    toJSON: {
+      virtuals: true,
+      getters: true
+    },
+    id: false
   }
 );
 

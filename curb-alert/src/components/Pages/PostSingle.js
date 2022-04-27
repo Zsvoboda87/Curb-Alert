@@ -22,17 +22,7 @@ export default function PostSingle() {
 
     return (
         <div>
-            <Card id="feed-item" style={{ width: '35rem' }}>
-
-                <Card.Body className='flex-center'>
-                    <Card.Title>{post.itemTitle}</Card.Title>
-
-                    <Card.Text>
-                        {post.itemDescription}
-                    </Card.Text>
-                </Card.Body>
-                <Card.Img variant="top" src={post.imageURL} />
-
+            <Card id="feed-item" style={{ width: '73vw' }} >
                 <CardHeader id="postSingle-header" className='flex-space-betweeen' >
                     <Button id="feed-button" variant="primary">Message the Owner</Button>
                     <Link to={`/`}>
@@ -40,10 +30,20 @@ export default function PostSingle() {
                     </Link>
                 </CardHeader>
 
+                <Card.Body className='flex-center'>
+                    <Card.Img variant="top" src={post.imageURL} />
+
+                    <Card.Title>{post.itemTitle}</Card.Title>
+                    <Card.Text>
+                        {post.itemDescription}
+                    </Card.Text>
+                </Card.Body>
+
+
             </Card>
 
 
-        </div>
+        </div >
 
 
 
