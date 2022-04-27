@@ -80,6 +80,10 @@ h1{
   color: var(--primary-color)
 }
 
+.logout{
+  vertical-align: bottom
+}
+
 .feed{
   display: flex;
   align-items: center;
