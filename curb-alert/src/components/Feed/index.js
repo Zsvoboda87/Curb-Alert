@@ -22,7 +22,7 @@ function Feed() {
             <Link to={`/post/${post._id}`}>
                 < Card id="feed-item" className="flex-center" style={{ width: '23vw', height: '55vh', margin: '.5rem' }}>
                     <Card.Title>{post.itemTitle}</Card.Title>
-                    <Card.Img style={{ width: '98%', margin: 'auto' }}
+                    <Card.Img className="card-img" style={{ width: '98%', height: '45vh', margin: 'auto' }}
                         variant="top" src={post.imageURL} />
 
                 </Card >

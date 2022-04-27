@@ -37,3 +37,23 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+export const UPDATE_PROFILE = gql`
+mutation updateProfile(  $userImage: String, $userDescription: String) {
+  updateProfile(
+    userDescription: $userDescription,
+    userImage: $userImage,
+    )
+    {
+     _id
+     username
+     userImage
+     userDescription
+     email
+     posts {
+       _id
+       
+   }
+  }
+  }
+  `

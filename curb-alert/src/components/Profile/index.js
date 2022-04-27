@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import AddPost from '../AddPost'
+import UpdateProfile from '../UpdateProfile'
 import Login from '../Login';
 import SignUp from '../Signup'
 
@@ -13,6 +14,7 @@ function Profile() {
             <AddPost />
             <SignUp />
             <Login />
+            <UpdateProfile />
         </div>
     );
 }

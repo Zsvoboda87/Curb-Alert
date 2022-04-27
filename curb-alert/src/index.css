@@ -102,3 +102,7 @@ h1{
   background-color: var(--tertiary-color);
   color: var(--primary-color)
 }
+
+.card-img{
+  object-fit: cover;
+}
