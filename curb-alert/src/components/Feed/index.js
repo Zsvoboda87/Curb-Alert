@@ -20,9 +20,9 @@ function Feed() {
 
         posts.map(post =>
             <Link to={`/post/${post._id}`}>
-                < Card id="feed-item" className="flex-wrap" style={{ width: '20vw', height: '55vh', margin: '.5rem' }}>
+                < Card id="feed-item" className="flex-center" style={{ width: '23vw', height: '55vh', margin: '.5rem' }}>
                     <Card.Title>{post.itemTitle}</Card.Title>
-                    <Card.Img style={{ width: '90%', margin: '.5rem' }}
+                    <Card.Img style={{ width: '98%', margin: 'auto' }}
                         variant="top" src={post.imageURL} />
 
                 </Card >
