@@ -38,9 +38,18 @@ export const LOGIN_USER = gql`
   }
 `;
 
+export const LOGOUT_USER = gql`
+mutation Logout{
+  logout(input: {}) {
+    status
+  }
+}`
+
+
 export const UPDATE_PROFILE = gql`
 mutation updateProfile(  $userImage: String, $userDescription: String) {
   updateProfile(
+ 
     userDescription: $userDescription,
     userImage: $userImage,
     )

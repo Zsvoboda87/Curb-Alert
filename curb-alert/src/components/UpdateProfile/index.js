@@ -12,7 +12,7 @@ import {
     useDisclosure
 } from '@chakra-ui/react'
 
-import { FormControl, FormLabel, Input, Select, Textarea, } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Textarea, } from '@chakra-ui/react';
 import { Button } from 'react-bootstrap';
 // import { QUERY_USER } from '../../utils/queries';
 
@@ -42,13 +42,11 @@ export default function UpdateProfile() {
     // }
     // })
 
-
     const handleDescriptionChange = event => {
         if (event.target.value.length <= 280) {
             setUserDescription(event.target.value);
         }
     };
-
 
     const uploadImage = () => {
         const data = new FormData()
@@ -76,14 +74,11 @@ export default function UpdateProfile() {
         } catch (e) {
             console.error(e);
         }
-
     };
-
-
 
     return (
         <>
-            <Button id="profile-button" onClick={onOpen}>UpdateProfile</Button>
+            <Button id="button" onClick={onOpen}>UpdateProfile</Button>
 
             <Modal
                 initialFocusRef={initialRef}

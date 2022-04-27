@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
+import { validateEmail } from '../../utils/helpers';
 
 import {
   Modal,
@@ -23,22 +24,36 @@ function SignUp() {
   const initialRef = React.useRef()
   const finalRef = React.useRef()
 
+  const [addUser, { error }] = useMutation(ADD_USER);
+
   const [formState, setFormState] = useState({
     username: '',
     email: '',
     password: '',
   });
 
-  const [addUser, { error }] = useMutation(ADD_USER);
+  const { username, email, password } = formState;
+  const [errorMessage, setErrorMessage] = useState(''); 
 
   //update state based on form input changes
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value
-    });
+  const handleChange = (e) => {
+    if (e.target.name === 'email') {
+      const isValid = validateEmail(e.target.value);
+      console.log(isValid);
+      if(!isValid) {
+          setErrorMessage('Your email is invalid');
+      } else {
+          if (!e.target.value.length) {
+              setErrorMessage(`${e.target.name} is required.`);
+          } else {
+              setErrorMessage('');
+          }
+      }
+  }
+  if (!errorMessage) {
+      setFormState({...formState, [e.target.name]: e.target.value })
+  }
+  console.log(errorMessage);
   };
 
   //submit form
@@ -57,7 +72,7 @@ function SignUp() {
 
   return (
     <>
-      <Button id="profile-button" onClick={onOpen}>Sign Up</Button>
+      <Button id="button" onClick={onOpen}>Sign Up</Button>
 
       <Modal
         initialFocusRef={initialRef}
@@ -75,7 +90,7 @@ function SignUp() {
               <Input placeholder='Username'
                 type="text"
                 name="username"
-                value={formState.username}
+                defaultValue={username}
                 onChange={handleChange} />
             </FormControl>
 
@@ -85,7 +100,7 @@ function SignUp() {
                 name="email"
                 type="email"
                 id="email"
-                value={formState.email}
+                defaultValue={email}
                 onChange={handleChange} />
             </FormControl>
 
@@ -95,13 +110,18 @@ function SignUp() {
                 name="password"
                 type="password"
                 id="password"
-                value={formState.password}
+                defaultValue={password}
                 onChange={handleChange} />
             </FormControl>
+            {errorMessage && (
+                    <div>
+                        <p className="error-text">{errorMessage}</p>
+                    </div>
+                )}
           </ModalBody>
 
           <ModalFooter justifyContent="center">
-            <Button id="profile-button" onClick={handleFormSubmit}>Sign up</Button>
+            <Button id="button" onClick={handleFormSubmit}>Sign up</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

@@ -12,7 +12,7 @@ import {
     useDisclosure
 } from '@chakra-ui/react'
 
-import { FormControl, FormLabel, Input, Select, Textarea, Flex } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Select, Textarea } from '@chakra-ui/react';
 import { Button } from 'react-bootstrap';
 import { QUERY_POSTS } from '../../utils/queries';
 
@@ -26,7 +26,7 @@ export default function AddPost() {
     const finalRef = React.useRef()
 
     const [image, setImage] = useState("");
-    const [imageURL, setImageURL] = useState("");
+
 
     const [itemTitle, setItemTitle] = useState('')
     const [itemDescription, setItemDescription] = useState('')
@@ -96,7 +96,7 @@ export default function AddPost() {
 
     return (
         <>
-            <Button id="profile-button" onClick={onOpen}>Add an Item</Button>
+            <Button id="button" onClick={onOpen}>Add an Item</Button>
 
             <Modal
                 initialFocusRef={initialRef}
@@ -146,7 +146,7 @@ export default function AddPost() {
 
 
                     <ModalFooter justifyContent="center">
-                        <Button id="profile-button" colorScheme='blue' mr={3}
+                        <Button id="button" colorScheme='blue' mr={3}
                             onClick={handleFormSubmit}
                         >
                             Upload Post!
