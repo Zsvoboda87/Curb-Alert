@@ -13,8 +13,17 @@ main {
   --accent-color: #963D5A;
 }
 
-h1{
+h1, h2{
   font-family: 'Work Sans', sans-serif;
+}
+.curb{
+  background-color: #FAF9F6;
+}
+.curb-header{
+  font-size: 2rem;
+  border-bottom: 1.5px solid var(--tertiary-color);
+  border-bottom-width: 30%;
+  padding: 1.5%
 }
 
 .flex-wrap{
@@ -42,11 +51,11 @@ h1{
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 2%
+  padding: 2%;
 }
 
 .title{
-  font-size: 1.5rem;
+  font-size: 2rem;
   padding: 3%
 }
 

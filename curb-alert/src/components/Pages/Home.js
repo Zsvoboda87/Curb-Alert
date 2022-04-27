@@ -18,9 +18,16 @@ function Home() {
                 <Profile />
             </Col>
 
-            <Col xs={12} md={9} className="feed">
-                <Route exact path="/" component={Feed} />
-                <Route exact path="/post/:id" component={PostSingle} />
+            <Col xs={12} md={9} className="curb">
+                <div className="curb-header">
+                    <h2>The Curb</h2>
+                </div>
+                
+                <div className="feed">
+                    <Route exact path="/" component={Feed} />
+                    <Route exact path="/post/:id" component={PostSingle} />
+                </div>
+                
             </Col>
 
         </Row>
