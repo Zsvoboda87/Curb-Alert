@@ -96,7 +96,7 @@ function Login() {
           </ModalBody>
 
           <ModalFooter justifyContent="center">
-            <Button id="profile-button" onClick={handleFormSubmit}>Log in</Button>
+            <Button id="button" onClick={handleFormSubmit}>Log in</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
