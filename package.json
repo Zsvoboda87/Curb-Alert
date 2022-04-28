@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/Zsvoboda87/Curb-Alert/issues"
   },
-  "homepage": "https://github.com/Zsvoboda87/Curb-Alert#readme",
+  "homepage": "https://github.com/Zsvoboda87/Curb-Alert",
   "devDependencies": {
     "concurrently": "^7.1.0"
   },
