@@ -88,6 +88,7 @@ export default function AddPost() {
             });
         } catch (e) {
             console.error(e);
+            window.alert(e);
         }
 
     };

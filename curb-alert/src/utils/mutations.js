@@ -14,6 +14,20 @@ mutation addPost($itemTitle:String!, $itemDescription: String!, $imageURL: Strin
   }
 `
 
+export const REMOVE_POST = gql`
+mutation removePost($_id: String) {
+  removePost(_id: $_id) {
+    _id
+    username
+    email
+    posts {
+      _id
+      
+  }
+}
+}
+`
+
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
