@@ -76,6 +76,16 @@ h1, h2{
   width: 200px;
 }
 
+#button-singlePost{
+  background-color: var(--primary-color);
+  border: 2px solid var(--secondary-color);
+  color: var(--tertiary-color);
+}
+#button-singlePost:hover{
+  background-color: var(--tertiary-color);
+  color: var(--primary-color)
+}
+
 #button{
   background-color: var(--primary-color);
   border: 2px solid var(--secondary-color);
