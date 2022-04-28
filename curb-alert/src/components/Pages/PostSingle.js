@@ -1,24 +1,36 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useParams, Link } from 'react-router-dom';
+import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_POST } from '../../utils/queries';
-import { Card, Button } from 'react-bootstrap';
+import { REMOVE_POST } from '../../utils/mutations';
 
-import { Link } from 'react-router-dom';
+import { Card, Button } from 'react-bootstrap';
 import CardHeader from 'react-bootstrap/esm/CardHeader';
 
 export default function PostSingle() {
     const { id: postId } = useParams();
-
     const { loading, data } = useQuery(QUERY_POST, {
         variables: { id: postId }
     });
-
     const post = data?.post || {};
+    const [removePost, { error }] = useMutation(REMOVE_POST)
 
     if (loading) {
         return <div>Loading...</div>;
     }
+
+
+    const handleDelete = async event => {
+        console.log(postId)
+        try {
+            await removePost({
+                variables: { _id: postId }
+            });
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
 
     return (
         <div>
@@ -37,6 +49,9 @@ export default function PostSingle() {
                     <Card.Text>
                         {post.itemDescription}
                     </Card.Text>
+                    <Button
+                        onClick={handleDelete}
+                    >Delete Post</Button>
                 </Card.Body>
 
 
