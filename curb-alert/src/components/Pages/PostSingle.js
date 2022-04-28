@@ -30,12 +30,12 @@ export default function PostSingle() {
                 </CardHeader>
 
                 <Card.Body className='flex-center'>
-                    <Card.Img variant="top" src={post.imageURL} />
-
                     <Card.Title>{post.itemTitle}</Card.Title>
                     <Card.Text>
                         {post.itemDescription}
                     </Card.Text>
+                    <Card.Img variant="top" src={post.imageURL} />
+
                 </Card.Body>
             </Card>
 
