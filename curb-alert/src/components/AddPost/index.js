@@ -93,7 +93,6 @@ export default function AddPost() {
     };
 
 
-
     return (
         <>
             <Button id="button" onClick={onOpen}>Add an Item</Button>
