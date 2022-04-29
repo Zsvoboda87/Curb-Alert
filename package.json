@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node server/server.js",
     "develop": "concurrently \"cd server && npm run watch\" \"cd curb-alert && npm start\"",
-    "install": "cd server && npm i && cd ../curb-alert && npm i"
+    "install": "cd server && npm i && cd ../curb-alert && npm i",
+    "build": "cd curb-alert && npm run build"
+  },
+  "engines": {
+    "node": "16.13.2"
   },
   "repository": {
     "type": "git",
@@ -18,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/Zsvoboda87/Curb-Alert/issues"
   },
-  "homepage": "https://github.com/Zsvoboda87/Curb-Alert#readme",
+  "homepage": "https://github.com/Zsvoboda87/Curb-Alert",
   "devDependencies": {
     "concurrently": "^7.1.0"
   },

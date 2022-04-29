@@ -12,7 +12,7 @@ import {
     useDisclosure
 } from '@chakra-ui/react'
 
-import { FormControl, FormLabel, Input, Select, Textarea, Flex } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, Select, Textarea } from '@chakra-ui/react';
 import { Button } from 'react-bootstrap';
 import { QUERY_POSTS } from '../../utils/queries';
 
@@ -26,7 +26,7 @@ export default function AddPost() {
     const finalRef = React.useRef()
 
     const [image, setImage] = useState("");
-    const [imageURL, setImageURL] = useState("");
+
 
     const [itemTitle, setItemTitle] = useState('')
     const [itemDescription, setItemDescription] = useState('')
@@ -88,6 +88,7 @@ export default function AddPost() {
             });
         } catch (e) {
             console.error(e);
+            window.alert(e);
         }
 
     };

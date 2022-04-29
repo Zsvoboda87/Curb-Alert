@@ -14,6 +14,20 @@ mutation addPost($itemTitle:String!, $itemDescription: String!, $imageURL: Strin
   }
 `
 
+export const REMOVE_POST = gql`
+mutation removePost($_id: String) {
+  removePost(_id: $_id) {
+    _id
+    username
+    email
+    posts {
+      _id
+      
+  }
+}
+}
+`
+
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
@@ -44,3 +58,25 @@ mutation Logout{
     status
   }
 }`
+
+
+export const UPDATE_PROFILE = gql`
+mutation updateProfile(  $userImage: String, $userDescription: String) {
+  updateProfile(
+ 
+    userDescription: $userDescription,
+    userImage: $userImage,
+    )
+    {
+     _id
+     username
+     userImage
+     userDescription
+     email
+     posts {
+       _id
+       
+   }
+  }
+  }
+  `

@@ -40,6 +40,8 @@ query post($id: ID!) {
     itemDescription
     itemCategory
     imageURL
+    username
     }
   }
 `;
+

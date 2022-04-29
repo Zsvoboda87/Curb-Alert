@@ -2,8 +2,10 @@ import React, { State, useState } from "react";
 import { Card } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import { QUERY_POSTS } from '../../utils/queries'
+
 import AddPost from '../AddPost'
 import { Select } from '@chakra-ui/react'
+
 
 import { Link } from 'react-router-dom'
 
@@ -23,6 +25,7 @@ function Feed() {
     })
    
     console.log(filteredPosts);
+
 
     return (
         <div>
