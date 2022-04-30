@@ -17,6 +17,33 @@ query  {
     }
   }
 `
+export const QUERY_ME = gql`
+  {
+    me {
+      _id
+      username
+      email
+      posts {
+        _id
+        itemTitle
+        itemDescription
+        itemCategory
+        imageURL
+        createdAt
+      }
+    }
+  }
+`; 
+
+export const QUERY_ME_BASIC = gql`
+  {
+    me {
+      _id
+      username
+      email
+    }
+  }
+`;
 
 
 export const QUERY_POSTS = gql`

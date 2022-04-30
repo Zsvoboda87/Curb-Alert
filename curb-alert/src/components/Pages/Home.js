@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-
 import { Row, Col } from 'react-bootstrap';
 import Feed from '../Feed/index.js';
 import Profile from '../Profile/index.js';
 import PostSingle from './PostSingle.js';
 import Filter from '../Filter/index.js';
+import UserProfile from '../Pages/UserProfile'
 
 
 function Home() {
@@ -29,6 +29,7 @@ function Home() {
                 <div className="feed">
                     <Route exact path="/" component={Feed} />
                     <Route exact path="/post/:id" component={PostSingle} />
+                    <Route exact path="/userprofile/" component={UserProfile} />
                 </div>
                 
             </Col>
