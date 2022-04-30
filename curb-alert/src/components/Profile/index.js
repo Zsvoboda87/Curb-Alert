@@ -26,8 +26,8 @@ function Profile() {
                     <h5>{userData.me.username}</h5>
                 </div>
             ): null}
-            <Link to={`/userprofile`}>
-                <Button id="button">View Profile</Button>
+            <Link id="link" to={`/userprofile`}>
+                View Profile
             </Link>
             <Button id="button">Messages</Button>
             <AddPost />
