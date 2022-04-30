@@ -13,17 +13,17 @@ function Home() {
                 <div className="header">
                     <img className='logo' src="../images/logo.png" />
                     <h1 className="title">Curb Alert</h1>
-                    
+
                 </div>
                 <Profile />
             </Col>
 
             <Col xs={12} md={9} className="curb">
-                <div className="feed">
-                    <Route exact path="/" component={Feed} />
-                    <Route exact path="/post/:id" component={PostSingle} />
-                </div>
-                
+
+                <Route exact path="/" component={Feed} />
+                <Route exact path="/post/:id" component={PostSingle} />
+
+
             </Col>
 
         </Row>
