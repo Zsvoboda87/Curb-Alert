@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../../utils/mutations';
 import Auth from '../../utils/auth';
-import { validateEmail } from '../../utils/helpers';
+import { validateEmail, checkPassword } from '../../utils/helpers';
 
 import {
   Modal,
@@ -38,9 +38,9 @@ function SignUp() {
   //update state based on form input changes
   const handleChange = (e) => {
     if (e.target.name === 'email') {
-      const isValid = validateEmail(e.target.value);
-      console.log(isValid);
-      if(!isValid) {
+      const isEmailValid = validateEmail(e.target.value);
+      console.log(isEmailValid);
+      if(!isEmailValid) {
           setErrorMessage('Your email is invalid');
       } else {
           if (!e.target.value.length) {
@@ -49,6 +49,19 @@ function SignUp() {
               setErrorMessage('');
           }
       }
+  }
+  if (e.target.name === 'password') {
+    const isPasswordValid = checkPassword(e.target.value);
+    console.log(checkPassword);
+    if(!isPasswordValid) {
+      setErrorMessage('Your password needs to be at least 5 characters');
+    } else {
+      if(!e.target.value.length) {
+        setErrorMessage(`${e.target.name} is required.`);
+      } else {
+        setErrorMessage('');
+      }
+    }
   }
   if (!errorMessage) {
       setFormState({...formState, [e.target.name]: e.target.value })
