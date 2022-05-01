@@ -21,7 +21,7 @@ const UserProfile = () => {
     
     return (
         <div>
-            <div>
+            <div className='curb-header user-profile-title'>
                 <h2>
                     Viewing {user.username}'s Profile
                 </h2>
