@@ -1,5 +1,5 @@
 main {
-	margin: 0 auto;
+  margin: 0 auto;
 }
 
 * {
@@ -16,12 +16,30 @@ main {
 h1, h2{
   font-family: 'Work Sans', sans-serif;
 }
+
+#link {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  background-color: var(--primary-color);
+  border: 2px solid var(--secondary-color);
+  color: var(--tertiary-color);
+  width: 55%;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
 .curb{
   background-color: #FAF9F6;
 }
 .curb-header{
   font-size: 2rem;
   border-bottom: 1.5px solid var(--tertiary-color);
+  border-bottom-width: 30%;
   padding: 1.5%
 }
 
@@ -113,7 +131,6 @@ h1, h2{
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-#card-img{
+.card-img{
   object-fit: cover;
 }
-
