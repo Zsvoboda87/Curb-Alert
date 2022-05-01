@@ -5,6 +5,7 @@ import { Row, Col } from 'react-bootstrap';
 import Feed from '../Feed/index.js';
 import Profile from '../Profile/index.js';
 import PostSingle from './PostSingle.js';
+import UserProfile from './UserProfile'
 
 function Home() {
     return (
@@ -22,6 +23,7 @@ function Home() {
 
                 <Route exact path="/" component={Feed} />
                 <Route exact path="/post/:id" component={PostSingle} />
+                <Route exact path="/userprofile" component={UserProfile} />
 
 
             </Col>
