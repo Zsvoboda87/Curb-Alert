@@ -8,7 +8,9 @@ const PostList = ({ posts, title}) => {
 
     return (
         <div>
-            <h3>{title}</h3>
+            <div className='curb-header user-profile-title'>
+                <h3>{title}</h3>
+            </div>
             <div className="feed">
                 {' '}
                 {posts &&

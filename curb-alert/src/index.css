@@ -33,6 +33,7 @@ h1, h2{
   width: 55%;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+
 .curb{
   background-color: #FAF9F6;
 }
@@ -133,4 +134,11 @@ h1, h2{
 
 .card-img{
   object-fit: cover;
+}
+
+.user-profile-title {
+  text-align: center;
+  display: block;
+  width: 100%;
+  min-width: 100% !important;
 }
