@@ -6,6 +6,7 @@ import { REMOVE_POST } from '../../utils/mutations';
 function DeletePost(postId) {
     const [removePost, { error }] = useMutation(REMOVE_POST)
 
+
     const handleDelete = async (postId) => {
         console.log(postId)
         try {
@@ -19,7 +20,7 @@ function DeletePost(postId) {
 
     return (
         <Button
-            onClick={handleDelete(postId)}
+            onClick={handleDelete}
         >Delete Post</Button>
     )
 }
