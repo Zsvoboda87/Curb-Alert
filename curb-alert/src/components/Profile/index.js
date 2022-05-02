@@ -5,6 +5,7 @@ import UpdateProfile from '../UpdateProfile'
 import Login from '../Login';
 import SignUp from '../Signup'
 import Auth from '../../utils/auth';
+import AddPostPromptLogin from '../AddPost/addPostPromptLogin';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME_BASIC } from '../../utils/queries';
 import { Link } from 'react-router-dom';
@@ -38,6 +39,7 @@ function Profile() {
                 </>
             ) : (
                 <>
+                    <AddPostPromptLogin />
                     <SignUp />
                     <Login />
                 </>
