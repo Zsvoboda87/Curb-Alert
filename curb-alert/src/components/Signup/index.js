@@ -80,6 +80,7 @@ function SignUp() {
       Auth.login(data.addUser.token)
     } catch (e) {
       console.error(e);
+      alert("Sign up failed")
     }
   };
 
