@@ -2,13 +2,15 @@ import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const PostList = ({ posts, title}) => {
+const PostList = ({ posts, title }) => {
 
     // if (!posts.length)
 
     return (
         <div>
-            <h3>{title}</h3>
+            <div className='curb-header user-profile-title'>
+                <h3>{title}</h3>
+            </div>
             <div className="feed">
                 {' '}
                 {posts &&

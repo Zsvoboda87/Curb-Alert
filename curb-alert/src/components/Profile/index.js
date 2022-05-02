@@ -24,16 +24,27 @@ function Profile() {
                     <h5>{userData.me.username}</h5>
                 </div>
             ) : null}
-            <Link id="link" to={`/userprofile`}>
-                View Profile
-            </Link>
 
-            <Button id="button">Messages</Button>
-            <AddPost />
-            <UpdateProfile />
-            <SignUp />
-            <Login />
-            <Button id="button" onClick={logout}>Logout</Button>
+
+            {loggedIn ? (
+                <>
+                    <AddPost />
+                    <Button id="button">Messages</Button>
+                    <Link id="link" to={`/userprofile`}>
+                        View Profile
+                    </Link>
+                    <UpdateProfile />
+                    <Button id="button" onClick={logout}>Logout</Button>
+                </>
+            ) : (
+                <>
+                    <SignUp />
+                    <Login />
+                </>
+
+            )}
+
+
         </div>
     );
 }
