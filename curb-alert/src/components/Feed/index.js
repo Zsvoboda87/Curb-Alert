@@ -6,8 +6,8 @@ import { QUERY_POSTS } from '../../utils/queries'
 import AddPost from '../AddPost'
 import { Select } from '@chakra-ui/react'
 
-
 import { Link } from 'react-router-dom'
+import ReactPaginate from "react-paginate";
 
 
 function Feed() {
@@ -24,8 +24,33 @@ function Feed() {
         return post.itemCategory === categoryChange
     })
 
-    console.log(filteredPosts);
+    const [pageNumber, setPageNumber] = useState(0);
 
+    const postsPerPage = 10
+    // ex pagesVisited for page 4 - 40
+    const pagesVisited = pageNumber * postsPerPage
+
+    // ex. page 4 = post 40 -> 50 
+    const displayPosts = filteredPosts
+        .slice(pagesVisited, pagesVisited + postsPerPage )
+        .map(post => {
+            return (
+                <Link to={`/post/${post._id}`}>
+                < Card id="feed-item" className="flex-center" style={{ width: '23vw', height: '50vh', margin: '.5rem' }}>
+                    <Card.Title>{post.itemTitle}</Card.Title>
+                    <Card.Img id="card-img" style={{ width: '98%', height: '45vh', margin: 'auto' }}
+                        variant="top" src={post.imageURL} />
+    
+                </Card >
+                </Link> 
+            );
+        });
+           
+        const pageCount = Math.ceil(filteredPosts.length / postsPerPage);
+
+        const changePage = ({ selected }) => {
+            setPageNumber(selected);
+        }
 
     return (
         <div>
@@ -44,19 +69,16 @@ function Feed() {
                 </Select>
             </div>
             <div className="feed">
-                {filteredPosts.map(post =>
-
-                    <Link to={`/post/${post._id}`}>
-                        < Card id="feed-item" className="flex-center" style={{ width: '23vw', height: '50vh', margin: '.5rem' }}>
-                            <Card.Title>{post.itemTitle}</Card.Title>
-                            <Card.Img id="card-img" style={{ width: '98%', height: '45vh', margin: 'auto' }}
-                                variant="top" src={post.imageURL} />
-
-                        </Card >
-                    </Link>
-
-                )}
+                {displayPosts}
             </div>
+            <ReactPaginate
+            nextLabel="Next"
+            previousLabel="Previous"
+            pageCount={pageCount}
+            onPageChange={changePage}
+            containerClassName={"pagination-btn"}
+            renderOnZeroPageCount={null}
+            />
 
         </div>
 
