@@ -8,7 +8,7 @@ import Auth from '../../utils/auth';
 import AddPostPromptLogin from '../AddPost/addPostPromptLogin';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME_BASIC } from '../../utils/queries';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, useHistory } from 'react-router-dom';
 
 function Profile() {
 
@@ -16,6 +16,13 @@ function Profile() {
     const loggedIn = Auth.loggedIn();
 
     const { logout } = Auth;
+
+    const history = useHistory();
+
+    const routeChange = () => {
+        let path = `/userprofile`;
+        history.push(path);
+    }
 
     return (
         <div className="profile-header">
@@ -31,9 +38,9 @@ function Profile() {
                 <>
                     <AddPost />
                     <Button id="button">Messages</Button>
-                    <Link id="link" to={`/userprofile`}>
+                    <Button id="button" onClick={routeChange}>
                         View Profile
-                    </Link>
+                    </Button>
                     <UpdateProfile />
                     <Button id="button" onClick={logout}>Logout</Button>
                 </>
