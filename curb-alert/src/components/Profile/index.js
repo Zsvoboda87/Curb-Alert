@@ -38,9 +38,6 @@ function Profile() {
                 <>
                     <AddPost />
                     <Button id="button">Messages</Button>
-                    {/* <Link id="link" to={`/userprofile`}>
-                        View Profile
-                    </Link> */}
                     <Button id="button" onClick={routeChange}>
                         View Profile
                     </Button>
