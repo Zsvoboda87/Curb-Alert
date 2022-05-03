@@ -21,7 +21,7 @@ export default function PostSingle() {
     }
 
     return (
-        <div >
+        <div className='flex-center'>
             <Card id="feed-item" style={{ width: '50vw' }} >
                 <CardHeader id="postSingle-header" className='flex-space-betweeen' >
                     <Button id="button-singlePost" variant="primary">Message the Owner</Button>
