@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import DeletePost from '../UpdateProfile/DeletePost'
 
 const PostList = ({ posts, title }) => {
 
@@ -15,14 +16,16 @@ const PostList = ({ posts, title }) => {
                 {' '}
                 {posts &&
                     posts.map(post => (
-                        <Link to={`/post/${post._id}`}>
-                            < Card id="feed-item" className="flex-center" style={{ width: '23vw', height: '50vh', margin: '.5rem' }}>
-                                <Card.Title>{post.itemTitle}</Card.Title>
-                                <Card.Img id="card-img" style={{ width: '98%', height: '45vh', margin: 'auto' }}
-                                    variant="top" src={post.imageURL} />
-
-                            </Card >
-                        </Link>
+                        <div className='flex-center'>
+                            <Link to={`/post/${post._id}`}>
+                                < Card id="feed-item" className="flex-center" style={{ width: '23vw', height: '50vh', margin: '.5rem' }}>
+                                    <Card.Title>{post.itemTitle}</Card.Title>
+                                    <Card.Img id="card-img" style={{ width: '98%', height: '45vh', margin: 'auto' }}
+                                        variant="top" src={post.imageURL} />
+                                </Card >
+                            </Link>
+                            < DeletePost postId={post._id} />
+                        </div>
                     ))
                 }
             </div>

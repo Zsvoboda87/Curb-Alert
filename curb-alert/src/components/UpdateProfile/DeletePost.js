@@ -1,25 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useMutation } from '@apollo/client';
 import { REMOVE_POST } from '../../utils/mutations';
 
-function DeletePost(postId) {
+export default function DeletePost(postId) {
     const [removePost, { error }] = useMutation(REMOVE_POST)
 
-
-    const handleDelete = async (postId) => {
-        console.log(postId)
+    const handleDelete = async () => {
         try {
             await removePost({
-                variables: { _id: postId }
-            });
+                variables: { _id: postId.postId }
+            }).then(
+                window.location.reload()
+            );
         } catch (e) {
             console.error(e);
         }
     }
 
     return (
-        <Button
+        <Button id="button"
             onClick={handleDelete}
         >Delete Post</Button>
     )
