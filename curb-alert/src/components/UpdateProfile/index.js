@@ -107,7 +107,7 @@ export default function UpdateProfile() {
 
 
                     <ModalFooter justifyContent="center">
-                        <Button id="profile-button" colorScheme='blue' mr={3}
+                        <Button id="button"  mr={3}
                             onClick={handleFormSubmit}
                         >
                             Upload Post!
