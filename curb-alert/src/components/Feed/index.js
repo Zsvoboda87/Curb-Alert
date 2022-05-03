@@ -78,6 +78,8 @@ function Feed() {
             onPageChange={changePage}
             containerClassName={"pagination-btn"}
             renderOnZeroPageCount={null}
+            disabledClassName={"paginationDisabled"}
+            activeClassName={"paginationActive"}
             />
 
         </div>
