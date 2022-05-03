@@ -54,7 +54,7 @@ function SignUp() {
     const isPasswordValid = checkPassword(e.target.value);
     console.log(checkPassword);
     if(!isPasswordValid) {
-      setErrorMessage('Your password needs to be at least 5 characters');
+      setErrorMessage('Your password needs to be at least 8 characters and contain an uppercase letter, number, and symbol.');
     } else {
       if(!e.target.value.length) {
         setErrorMessage(`${e.target.name} is required.`);
@@ -80,6 +80,7 @@ function SignUp() {
       Auth.login(data.addUser.token)
     } catch (e) {
       console.error(e);
+      alert("Sign up failed")
     }
   };
 

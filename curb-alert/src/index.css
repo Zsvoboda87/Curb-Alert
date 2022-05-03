@@ -94,6 +94,11 @@ h1, h2{
   width: 200px;
 }
 
+.username{
+  font-weight: bold;
+  padding-bottom: 1%;
+}
+
 #button-singlePost{
   background-color: var(--primary-color);
   border: 2px solid var(--secondary-color);

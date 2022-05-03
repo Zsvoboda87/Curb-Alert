@@ -21,7 +21,7 @@ function Profile() {
         <div className="profile-header">
             <img className="profileImage" src="../images/avatar.png"></img>
             {loggedIn && userData ? (
-                <div>
+                <div className="username">
                     <h5>{userData.me.username}</h5>
                 </div>
             ) : null}
