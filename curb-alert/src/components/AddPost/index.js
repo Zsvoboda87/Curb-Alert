@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../../utils/mutations';
+import { QUERY_ME } from '../../utils/queries';
 import {
     Modal,
     ModalOverlay,
@@ -15,8 +16,6 @@ import {
 import { FormControl, FormLabel, Input, Select, Textarea } from '@chakra-ui/react';
 import { Button } from 'react-bootstrap';
 import { QUERY_POSTS } from '../../utils/queries';
-
-
 
 
 export default function AddPost() {
@@ -34,15 +33,27 @@ export default function AddPost() {
 
     const [addPost, { error }] = useMutation(ADD_POST, {
         update(cache, { data: { addPost } }) {
-            // read what's currently in the cache
-            const { posts } = cache.readQuery({ query: QUERY_POSTS });
+            try {
+                // read what's currently in the cache
+                const { posts } = cache.readQuery({ query: QUERY_POSTS });
 
-            // prepend the newest thought to the front of the array
+                // prepend the newest thought to the front of the array
+                cache.writeQuery({
+                    query: QUERY_POSTS,
+                    data: { posts: [addPost, ...posts] }
+                });
+            } catch (e) {
+                console.error(e);
+            }
+
+            const { me } = cache.readQuery({ query: QUERY_ME });
             cache.writeQuery({
-                query: QUERY_POSTS,
-                data: { posts: [addPost, ...posts] }
+                query: QUERY_ME,
+                data: { me: { ...me, posts: [...me.posts, addPost] } }
             });
+
         }
+
     })
 
 
