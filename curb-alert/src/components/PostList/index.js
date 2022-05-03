@@ -8,8 +8,10 @@ import { Button } from 'react-bootstrap';
 
 const PostList = ({ posts, title }) => {
     const [removePost, { error }] = useMutation(REMOVE_POST);
-    
-    // if (!posts.length)
+
+    if (!posts || !posts.length) {
+        return <p>{title}, add some things to your curb!</p>;
+    }
 
     const handleDelete = async (postId) => {
         console.log(postId)
@@ -31,7 +33,7 @@ const PostList = ({ posts, title }) => {
                 {' '}
                 {posts &&
                     posts.map(post => (
-                        
+
                         < Card id="feed-item" className="flex-center" style={{ width: '23vw', height: '50vh', margin: '.5rem' }}>
                             <Link to={`/post/${post._id}`}>
                                 <Card.Title>{post.itemTitle}</Card.Title>
@@ -39,7 +41,7 @@ const PostList = ({ posts, title }) => {
                                     variant="top" src={post.imageURL} 
                                 />
                             </Link>
-                            <Button id="button" onClick={handleDelete(post._id)}>Delete Post</Button>
+                            <Button id="button" onClick={() =>handleDelete(post._id)}>Delete Post</Button>
                         </Card >
                     ))
                 }
@@ -47,5 +49,35 @@ const PostList = ({ posts, title }) => {
         </div>
     )
 }
+
+// const PostList = ({ posts, title }) => {
+
+//     if (!posts || !posts.length) {
+//         return <p>{title}, add some things to your curb!</p>;
+//     }
+
+//     return (
+//         <div>
+//             <div className='curb-header user-profile-title'>
+//                 <h3>{title}</h3>
+//             </div>
+//             <div className="feed">
+//                 {' '}
+//                 {posts &&
+//                     posts.map(post => (
+//                         <Link to={`/post/${post._id}`}>
+//                             < Card id="feed-item" className="flex-center" style={{ width: '23vw', height: '50vh', margin: '.5rem' }}>
+//                                 <Card.Title>{post.itemTitle}</Card.Title>
+//                                 <Card.Img id="card-img" style={{ width: '98%', height: '45vh', margin: 'auto' }}
+//                                     variant="top" src={post.imageURL} />
+
+//                             </Card >
+//                         </Link>
+//                     ))
+//                 }
+//             </div>
+//         </div>
+//     )
+// }
 
 export default PostList;

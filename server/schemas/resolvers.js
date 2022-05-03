@@ -86,10 +86,13 @@ const resolvers = {
 
             throw new AuthenticationError('You need to be logged in!');
         },
-        removePost: async (parent, { _id }, context) => {
+        removePost: async (parent,  { _id }, context) => {
 
             if (context.user) {
-                await Post.findOneAndDelete({ _id })
+
+                const post = await Post.findByIdAndDelete( _id)
+
+                return post;
             }
         },
         addReaction: async (parent, { postId, reactionBody }, context) => {
