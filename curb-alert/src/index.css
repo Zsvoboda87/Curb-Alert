@@ -187,3 +187,8 @@ h1, h2{
   width: 100%;
   min-width: 100% !important;
 }
+
+.map-container {
+  width: 50%;
+  height: 50vh;
+}
