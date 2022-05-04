@@ -27,6 +27,7 @@
     "concurrently": "^7.1.0"
   },
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "react-router-dom": "^5.3.1"
   }
 }
