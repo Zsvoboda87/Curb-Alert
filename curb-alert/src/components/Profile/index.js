@@ -12,7 +12,9 @@ import { Link, Redirect, useHistory } from 'react-router-dom';
 
 function Profile() {
 
-    const { data: userData } = useQuery(QUERY_ME_BASIC);
+    const { loading, data } = useQuery(QUERY_ME_BASIC);
+    const userData = data?.me || data?.user || {};
+
     const loggedIn = Auth.loggedIn();
 
     const { logout } = Auth;
@@ -26,13 +28,13 @@ function Profile() {
 
     return (
         <div className="profile-header">
-            
+
             {loggedIn && userData ? (
                 <>
-                <img className="user-profile-image" src={userData.me.userImage} alt="user-avatar"></img>
-                <div className="username">
-                    <h5>{userData.me.username}</h5>
-                </div>
+                    <img className="user-profile-image" src={userData.me.userImage} alt="user-avatar"></img>
+                    <div className="username">
+                        <h5>{userData.me.username}</h5>
+                    </div>
                 </>
             ) : <img className="profileImage" src="../images/avatar.png" alt="user-avatar"></img>}
 

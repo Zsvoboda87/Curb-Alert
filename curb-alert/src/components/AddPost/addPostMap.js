@@ -6,7 +6,7 @@ import {
     Marker
 } from '@react-google-maps/api'
 
-export default function DisplayMap() {
+export default function AddMap() {
     const center = useMemo(() => ({ lat: 41.4, lng: -81.7 }), []);
 
     const { isLoaded } = useJsApiLoader({
@@ -17,7 +17,7 @@ export default function DisplayMap() {
     if (!isLoaded) return <div>Loading...</div>;
     return (
         <GoogleMap zoom={12} center={center} mapContainerClassName="map-container">
-            <Marker position={center} />
+            <Marker position={{ lat: 41.4, lng: -81.7 }} />
         </GoogleMap>
     );
 
