@@ -21,7 +21,7 @@ const PostList = ({ posts, user }) => {
             } catch (e) {
                 console.warn('First thought insertion by user')
             }
-
+            // scrap
             // const { posts } = cache.readQuery({ query: QUERY_POSTS});
 
             // cache.writeQuery({
