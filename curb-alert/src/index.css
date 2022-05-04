@@ -11,6 +11,8 @@ main {
   --secondary-color: #B4C4AE;
   --tertiary-color: #395E66;
   --accent-color: #963D5A;
+  --quaternary-color: #d11a2a; 
+  --quinary-color: #e2868e; 
 }
 
 h1, h2{
@@ -121,6 +123,17 @@ h1, h2{
   color: var(--primary-color)
 }
 
+#delete-button{
+  background-color: var(--quaternary-color);
+  border: 2px solid var(--accent-color);
+  width: 55%;
+  margin: 10px;
+}
+
+#delete-button:hover{
+  background-color: var(--quinary-color);
+}
+
 .logout{
   vertical-align: bottom
 }
@@ -186,6 +199,16 @@ h1, h2{
   display: block;
   width: 100%;
   min-width: 100% !important;
+  background-color: var(--primary-color);
+}
+
+.user-profile-subtitle {
+  text-align: center;
+  display: block;
+  width: 100%;
+  min-width: 100% !important;
+  padding: 1.5%;
+  font-size: 1.5rem;
 }
 
 .map-container {

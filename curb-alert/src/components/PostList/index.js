@@ -7,7 +7,7 @@ import { Button } from 'react-bootstrap';
 import { QUERY_ME, QUERY_POSTS } from '../../utils/queries';
 
 
-const PostList = ({ posts, title }) => {
+const PostList = ({ posts, user }) => {
     const [removePost, { error }] = useMutation(REMOVE_POST, {
         update(cache, {data: { removePost }}) {
 
@@ -48,8 +48,8 @@ const PostList = ({ posts, title }) => {
 
     return (
         <div>
-            <div className='curb-header user-profile-title'>
-                <h3>{title}</h3>
+            <div className='user-profile-subtitle'>
+                <h2>{`${user}'s posts`}</h2>
             </div>
             <div className="feed">
                 {' '}
@@ -63,7 +63,7 @@ const PostList = ({ posts, title }) => {
                                     variant="top" src={post.imageURL} 
                                 />
                             </Link>
-                            <Button id="button" onClick={() =>handleDelete(post._id)}>Delete Post</Button>
+                            <Button id="delete-button" onClick={() =>handleDelete(post._id)}>Delete Post</Button>
                         </Card >
                     ))
                 }

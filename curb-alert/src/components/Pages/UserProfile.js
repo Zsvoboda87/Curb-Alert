@@ -29,7 +29,7 @@ const UserProfile = () => {
             <div>
                 <PostList
                     posts={user.posts}
-                    title={`${user.username}'s posts`}
+                    user={user.username}
                 />
             </div>
         </div>
