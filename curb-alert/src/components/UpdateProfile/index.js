@@ -78,7 +78,7 @@ export default function UpdateProfile() {
 
     return (
         <>
-            <Button id="update-profile-button" onClick={onOpen}>Update Profile</Button>
+            <Button id="button" onClick={onOpen}>Update Profile</Button>
 
             <Modal
                 initialFocusRef={initialRef}

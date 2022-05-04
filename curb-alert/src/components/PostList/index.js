@@ -32,7 +32,11 @@ const PostList = ({ posts, user }) => {
     });
 
     if (!posts || !posts.length) {
-        return <p>add some things to your curb!</p>;
+        return (
+            <>
+            <p className='conditional-title'>Add an item to your curb!</p>;
+            </>
+        )
     }
 
     const handleDelete = async (postId) => {

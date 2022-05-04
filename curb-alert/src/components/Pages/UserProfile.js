@@ -1,6 +1,7 @@
 import React from 'react';
 import PostList from '../PostList'
 import UpdateProfile from '../UpdateProfile';
+import AddPost from '../AddPost';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_ME, QUERY_USER } from '../../utils/queries';
@@ -33,6 +34,7 @@ const UserProfile = () => {
                     {user.userDescription}
                 </p>
                 <UpdateProfile />
+                <AddPost />
 
             </div>
             <div>
