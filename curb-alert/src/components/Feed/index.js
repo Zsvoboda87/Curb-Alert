@@ -27,10 +27,8 @@ function Feed() {
     const [pageNumber, setPageNumber] = useState(0);
 
     const postsPerPage = 10
-    // ex pagesVisited for page 4 - 40
     const pagesVisited = pageNumber * postsPerPage
 
-    // ex. page 4 = post 40 -> 50 
     const displayPosts = filteredPosts
         .slice(pagesVisited, pagesVisited + postsPerPage )
         .map(post => {
