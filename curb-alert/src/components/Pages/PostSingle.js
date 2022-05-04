@@ -36,8 +36,10 @@ export default function PostSingle() {
                         {post.itemDescription}
                     </Card.Text>
                     <Card.Img variant="top" src={post.imageURL} />
-
                 </Card.Body>
+                
+
+                
             </Card>
 
             <div >
