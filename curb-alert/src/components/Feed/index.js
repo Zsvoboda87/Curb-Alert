@@ -1,7 +1,7 @@
 import React, { State, useState } from "react";
 import { Card } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
-import { QUERY_POSTS } from '../../utils/queries'
+import { QUERY_POSTS, QUERY_ME } from '../../utils/queries'
 
 import AddPost from '../AddPost'
 import { Select } from '@chakra-ui/react'
@@ -13,10 +13,9 @@ import ReactPaginate from "react-paginate";
 function Feed() {
     const { loading, data } = useQuery(QUERY_POSTS);
     const posts = data?.posts || [];
-    console.log(posts);
 
     const [categoryChange, handleCategoryChange] = useState('');
-    console.log(categoryChange);
+
 
     const filteredPosts = posts.filter((post) => {
         if (categoryChange === '')
@@ -30,25 +29,25 @@ function Feed() {
     const pagesVisited = pageNumber * postsPerPage
 
     const displayPosts = filteredPosts
-        .slice(pagesVisited, pagesVisited + postsPerPage )
+        .slice(pagesVisited, pagesVisited + postsPerPage)
         .map(post => {
             return (
                 <Link to={`/post/${post._id}`}>
-                < Card id="feed-item" className="flex-center" style={{ width: '23vw', height: '50vh', margin: '.5rem' }}>
-                    <Card.Title>{post.itemTitle}</Card.Title>
-                    <Card.Img id="card-img" style={{ width: '98%', height: '45vh', margin: 'auto' }}
-                        variant="top" src={post.imageURL} />
-    
-                </Card >
-                </Link> 
+                    < Card id="feed-item" className="flex-center" style={{ width: '23vw', height: '50vh', margin: '.5rem' }}>
+                        <Card.Title>{post.itemTitle}</Card.Title>
+                        <Card.Img id="card-img" style={{ width: '98%', height: '45vh', margin: 'auto' }}
+                            variant="top" src={post.imageURL} />
+
+                    </Card >
+                </Link>
             );
         });
-           
-        const pageCount = Math.ceil(filteredPosts.length / postsPerPage);
 
-        const changePage = ({ selected }) => {
-            setPageNumber(selected);
-        }
+    const pageCount = Math.ceil(filteredPosts.length / postsPerPage);
+
+    const changePage = ({ selected }) => {
+        setPageNumber(selected);
+    }
 
     return (
         <div>
@@ -70,14 +69,14 @@ function Feed() {
                 {displayPosts}
             </div>
             <ReactPaginate
-            nextLabel="Next"
-            previousLabel="Previous"
-            pageCount={pageCount}
-            onPageChange={changePage}
-            containerClassName={"pagination-btn"}
-            renderOnZeroPageCount={null}
-            disabledClassName={"paginationDisabled"}
-            activeClassName={"paginationActive"}
+                nextLabel="Next"
+                previousLabel="Previous"
+                pageCount={pageCount}
+                onPageChange={changePage}
+                containerClassName={"pagination-btn"}
+                renderOnZeroPageCount={null}
+                disabledClassName={"paginationDisabled"}
+                activeClassName={"paginationActive"}
             />
 
         </div>
