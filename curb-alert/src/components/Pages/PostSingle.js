@@ -2,11 +2,14 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_POST } from '../../utils/queries';
-import Map from '../AddPost/Map';
+import DisplayMap from '../AddPost/DisplayMap';
 
 
 import { Card, Button } from 'react-bootstrap';
 import CardHeader from 'react-bootstrap/esm/CardHeader';
+import { isRequiredArgument } from 'graphql';
+
+
 
 
 export default function PostSingle() {
@@ -41,7 +44,7 @@ export default function PostSingle() {
             </Card>
 
             <div >
-                <Map></Map>
+                <DisplayMap />
             </div>
 
         </div >
