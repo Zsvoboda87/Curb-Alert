@@ -52,9 +52,9 @@ function SignUp() {
   }
   if (e.target.name === 'password') {
     const isPasswordValid = checkPassword(e.target.value);
-    console.log(checkPassword);
+    console.log(e.target.value);
     if(!isPasswordValid) {
-      setErrorMessage('Your password needs to be at least 8 characters and contain an uppercase letter, number, and symbol.');
+      setErrorMessage('Your password needs to be at least 8 characters and contain an uppercase letter and number.');
     } else {
       if(!e.target.value.length) {
         setErrorMessage(`${e.target.name} is required.`);

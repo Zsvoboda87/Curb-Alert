@@ -38,6 +38,7 @@ const resolvers = {
     },
     Mutation: {
         addUser: async (parent, args) => {
+            console.log(args);
             const user = await User.create(args);
             const token = signToken(user);
 
@@ -95,11 +96,11 @@ const resolvers = {
                 return post;
             }
         },
-        addReaction: async (parent, { postId, reactionBody }, context) => {
+        addComment: async (parent, { postId, commentBody }, context) => {
             if (context.user) {
                 const updatedPost = await Post.findOneAndUpdate(
                     { _id: postId },
-                    { $push: { reactions: { reactionBody, username: context.user.username } } },
+                    { $push: { comments: { commentBody, username: context.user.username } } },
                     { new: true, runValidators: true }
                 );
 
