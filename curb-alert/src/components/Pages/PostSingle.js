@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_POST } from '../../utils/queries';
+import Map from '../AddPost/Map';
 
 
 import { Card, Button } from 'react-bootstrap';
@@ -20,7 +21,7 @@ export default function PostSingle() {
     }
 
     return (
-        <div>
+        <div className='flex-center'>
             <Card id="feed-item" style={{ width: '50vw' }} >
                 <CardHeader id="postSingle-header" className='flex-space-betweeen' >
                     <Button id="button-singlePost" variant="primary">Message the Owner</Button>
@@ -39,11 +40,11 @@ export default function PostSingle() {
                 </Card.Body>
             </Card>
 
+            <div >
+                <Map></Map>
+            </div>
 
         </div >
-
-
-
     )
 
 };
