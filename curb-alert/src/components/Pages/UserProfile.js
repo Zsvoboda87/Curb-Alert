@@ -26,11 +26,13 @@ const UserProfile = () => {
                 <h2>
                     Viewing {user.username}'s Profile
                 </h2>
-                <UpdateProfile />
+
+                <img className="user-profile-image" src={user.userImage} alt="profileImage"></img>
                 <p className='about-me'>About Me</p>
                 <p className='user-description'>
                     {user.userDescription}
                 </p>
+                <UpdateProfile />
 
             </div>
             <div>

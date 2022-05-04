@@ -93,12 +93,30 @@ h1, h2{
 }
 
 .profileImage{
-  width: 200px;
+  object-fit: cover;
+  width:150px;
+  height:150px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* border-radius: 50%; */
+}
+
+.user-profile-image{
+  object-fit: cover;
+  width:150px;
+  height:150px;
+  border-radius: 50%;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  /* width: 50%; */
 }
 
 .username{
   font-weight: bold;
-  padding-bottom: 1%;
+  margin-bottom: 10px;
 }
 
 .user-description {
@@ -148,6 +166,11 @@ h1, h2{
   border: 2px solid var(--tertiary-color);
   color: var(--primary-color);
   width: 55%;
+}
+
+#update-profile-button:hover{
+  background-color: var(--accent-color);
+  /* color: var(--tertiary-color); */
 }
 
 .logout{

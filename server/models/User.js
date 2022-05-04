@@ -10,10 +10,11 @@ const userSchema = new Schema(
       trim: true
     },
     userImage: {
-      type: String
+      type: String,
+      default: '../images/avatar.png'
     },
     userDescription: {
-      type: String
+      type: String,
     },
     email: {
       type: String,
