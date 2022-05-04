@@ -21,14 +21,14 @@ const typeDefs = gql`
     itemCategory: String
     createdAt: String
     username: String
+
   }
 
-type Comment {
-  _id: ID
-  username: String
-  createdAt: String
-  comments: [Comment]
-}
+  type Comment {
+    _id: ID
+    username: String
+    createdAt: String
+  }
 
   type Query {
     me: User
@@ -47,8 +47,7 @@ type Comment {
     addPost(itemTitle: String!, itemDescription: String!, imageURL: String, itemCategory:String): Post
     removePost(_id: String): User
     
-    addReaction(_id: ID!, reactionBody: String!): Post
-    
+    addComment(postId: ID!, commentBody: String!): Post
   }
 
   type Auth {
