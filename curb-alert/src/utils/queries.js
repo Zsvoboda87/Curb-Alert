@@ -69,6 +69,8 @@ export const QUERY_ME = gql`
     me {
       _id
       username
+      userDescription
+      userImage
       email
       posts {
         _id

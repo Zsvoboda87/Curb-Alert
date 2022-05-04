@@ -101,6 +101,15 @@ h1, h2{
   padding-bottom: 1%;
 }
 
+.user-description {
+  font-size: 1rem
+}
+
+.about-me {
+  font-size: 1.5rem;
+  color: var(--tertiary-color)
+}
+
 #button-singlePost{
   background-color: var(--primary-color);
   border: 2px solid var(--secondary-color);
@@ -132,6 +141,13 @@ h1, h2{
 
 #delete-button:hover{
   background-color: var(--quinary-color);
+}
+
+#update-profile-button {
+  background-color: var(--tertiary-color);
+  border: 2px solid var(--tertiary-color);
+  color: var(--primary-color);
+  width: 55%;
 }
 
 .logout{
