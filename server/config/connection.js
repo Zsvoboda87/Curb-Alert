@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/curb-alert-db2', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/curb-alert-db1', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
