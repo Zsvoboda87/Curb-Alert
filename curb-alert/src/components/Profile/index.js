@@ -26,12 +26,15 @@ function Profile() {
 
     return (
         <div className="profile-header">
-            <img className="profileImage" src="../images/avatar.png"></img>
+            
             {loggedIn && userData ? (
+                <>
+                <img className="user-profile-image" src={userData.me.userImage} alt="user-avatar"></img>
                 <div className="username">
                     <h5>{userData.me.username}</h5>
                 </div>
-            ) : null}
+                </>
+            ) : <img className="profileImage" src="../images/avatar.png" alt="user-avatar"></img>}
 
 
             {loggedIn ? (
@@ -41,7 +44,6 @@ function Profile() {
                     <Button id="button" onClick={routeChange}>
                         View Profile
                     </Button>
-                    <UpdateProfile />
                     <Button id="button" onClick={logout}>Logout</Button>
                 </>
             ) : (

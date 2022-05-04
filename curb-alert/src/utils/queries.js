@@ -69,6 +69,8 @@ export const QUERY_ME = gql`
     me {
       _id
       username
+      userDescription
+      userImage
       email
       posts {
         _id
@@ -82,12 +84,21 @@ export const QUERY_ME = gql`
 `;
 
 export const QUERY_ME_BASIC = gql`
-  {
-    me {
+{
+  me {
+    _id
+    username
+    userDescription
+    userImage
+    email
+    posts {
       _id
-      username
-      email
+      itemTitle
+      itemCategory
+      imageURL
+      createdAt
     }
   }
+}
 `;
 

@@ -78,7 +78,7 @@ export default function UpdateProfile() {
 
     return (
         <>
-            <Button id="button" onClick={onOpen}>UpdateProfile</Button>
+            <Button id="button" onClick={onOpen}>Update Profile</Button>
 
             <Modal
                 initialFocusRef={initialRef}
@@ -110,7 +110,7 @@ export default function UpdateProfile() {
                         <Button id="button"  mr={3}
                             onClick={handleFormSubmit}
                         >
-                            Upload Post!
+                            Update Profile!
                         </Button>
                     </ModalFooter>
 
