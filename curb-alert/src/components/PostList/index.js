@@ -4,13 +4,35 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { REMOVE_POST } from '../../utils/mutations';
 import { Button } from 'react-bootstrap';
+import { QUERY_ME, QUERY_POSTS } from '../../utils/queries';
 
 
 const PostList = ({ posts, title }) => {
-    const [removePost, { error }] = useMutation(REMOVE_POST);
+    const [removePost, { error }] = useMutation(REMOVE_POST, {
+        update(cache, {data: { removePost }}) {
+
+            try {
+                const { me } = cache.readQuery({ query: QUERY_ME });
+
+                cache.writeQuery({
+                    query: QUERY_ME,
+                    data: { me: { ...me, posts: [...me.posts.filter((post) => post._id !== removePost._id)]}}
+                })
+            } catch (e) {
+                console.warn('First thought insertion by user')
+            }
+
+            // const { posts } = cache.readQuery({ query: QUERY_POSTS});
+
+            // cache.writeQuery({
+            //     query:  QUERY_POSTS,
+            //     data: { posts: [...posts] }
+            // });
+        }
+    });
 
     if (!posts || !posts.length) {
-        return <p>{title}, add some things to your curb!</p>;
+        return <p>add some things to your curb!</p>;
     }
 
     const handleDelete = async (postId) => {
