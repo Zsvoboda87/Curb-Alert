@@ -9,6 +9,10 @@ import { Card, Button } from 'react-bootstrap';
 import CardHeader from 'react-bootstrap/esm/CardHeader';
 import { isRequiredArgument } from 'graphql';
 
+import CommentList from '../Comment/index';
+import CommentForm from '../Comment/CommentForm';
+import Auth from '../../utils/auth';
+
 
 
 
@@ -39,8 +43,15 @@ export default function PostSingle() {
                         {post.itemDescription}
                     </Card.Text>
                     <Card.Img variant="top" src={post.imageURL} />
-
                 </Card.Body>
+                
+                {post.CommentCount > 0 && (
+                    <CommentList comments={post.comments} />
+                )}
+                {Auth.loggedIn() && <CommentForm postId={post._id} />}
+                
+
+                
             </Card>
 
             <div >
