@@ -275,21 +275,27 @@ h1, h2{
 }
 
 /*Media Query for Smaller Desktop Screens and Smaller*/
-@media screen and (max-width: 980px) {
-
+@media screen and (max-width: 769px) {
 .main-row {
   height: 10%;
+  width: 100%;
 }
+
 .profile-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-section.col{
   max-height: 10%;
   max-width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap-reverse;
+  flex: none;
 }
+
 .profile-header {
-  max-width: 100%;
-  display: block;
+  max-width: 50%;
+  flex-direction: row-reverse;
+
 }
 
 .user-profile-image {
@@ -298,14 +304,22 @@ h1, h2{
 }
 
 .logo {
-  width: 9%;
+  width: 10%;
 }
 .title {
-  font-size: 2rem;
+  font-size: 25px;
+}
+#button {
+  height: 55px;
+  font-size: 10px;
 }
 
-.large-button {
-  display: none;
+.header {
+  display: flex;
+  max-width: 75%;
+  justify-content: flex-start;
 }
+
+
 
 }
