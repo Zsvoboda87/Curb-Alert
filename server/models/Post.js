@@ -35,10 +35,10 @@ const ReplySchema = new Schema(
 const CommentSchema = new Schema(
   {
     //set custom id to avoid confusion with parent post_id
-    commentId: {
-      type: Schema.Types.ObjectId,
-      default: () => Types.ObjectId()
-    },
+    // commentId: {
+    //   type: Schema.Types.ObjectId,
+    //   default: () => Types.ObjectId()
+    // },
     username: {
       type: String,
       required: true
@@ -52,7 +52,7 @@ const CommentSchema = new Schema(
       default: Date.now,
       get: createdAtVal => dateFormat(createdAtVal)
     },
-    replies: [ReplySchema]
+    // replies: [ReplySchema]
   },
   {
     toJSON: {

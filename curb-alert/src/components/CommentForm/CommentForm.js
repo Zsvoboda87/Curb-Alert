@@ -5,10 +5,10 @@ import { ADD_COMMENT } from '../../utils/mutations';
 
 import { Button } from 'react-bootstrap';
 import { FormControl, Input } from '@chakra-ui/react';
-import { QUERY_POST, QUERY_COMMENTS } from '../../utils/queries';
+import { QUERY_COMMENTS } from '../../utils/queries';
 
 const CommentForm = () => {
-  const [comment, setComment] = useState(data);
+  const [commentBody, setCommentBody] = useState(data);
   const [characterCount, setCharacterCount] = useState(0);
 
   const [addComment, { error }] = useMutation(ADD_COMMENT, {
@@ -29,7 +29,7 @@ const CommentForm = () => {
   // update state based on form input changes
   const handleChange = (event) => {
     if (event.target.value.length <= 280) {
-      setBody(event.target.value);
+      setCommentBody(event.target.value);
       setCharacterCount(event.target.value.length);
     }
   };
@@ -40,7 +40,7 @@ const CommentForm = () => {
 
     try {
       await addComment({
-        variables: { commentBody, postId },
+        variables: { commentBody, createdAt },
       });
 
       // clear form value
@@ -58,6 +58,7 @@ const CommentForm = () => {
           value={commentBody}
           onChange={handleChange}
         />
+        Character Count: {characterCount}/280
         <Button id="button-singlePost" variant="primary" onClick={handleFormSubmit}>Submit Comment</Button>
       </FormControl>
   );
