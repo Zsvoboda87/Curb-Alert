@@ -1,15 +1,36 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
+    },
+    {
+      "src": "images/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "images/logo.png",
+      "type":"image/png"
     }
   ],
-  "start_url": ".",
+  "name": "Curb Alert",
+  "short_name": "Curb Alert",
+  "orientation": "portrait",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "start_url": "/",
+  "description": "An app that allows you to view items for free in your neighborhood",
+  "background_color": "#B4C4AE",
+  "theme_color": "#395E66"
 }

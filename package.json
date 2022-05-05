@@ -24,7 +24,10 @@
   },
   "homepage": "https://github.com/Zsvoboda87/Curb-Alert",
   "devDependencies": {
-    "concurrently": "^7.1.0"
+    "concurrently": "^7.1.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-pwa-manifest": "^4.3.0"
   },
   "dependencies": {
     "react-paginate": "^8.1.3",
