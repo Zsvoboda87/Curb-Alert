@@ -22,6 +22,7 @@ export default function PostSingle() {
         variables: { id: postId }
     });
     const post = data?.post || {};
+    console.log(post)
 
     if (loading) {
         return <div>Loading...</div>;
@@ -44,9 +45,9 @@ export default function PostSingle() {
                             <div className='post-title-item-link'>
                                 posted by: {' '}
                                 <Link to={`/userprofile/${post.username}`}>
-                                    
+
                                     {post.username}
-                                    
+
                                 </Link>
                             </div>
                             <div className='post-title-item'>
@@ -56,14 +57,11 @@ export default function PostSingle() {
                     </Card.Text>
                     <Card.Img variant="top" src={post.imageURL} />
                 </Card.Body>
-                
-                {post.CommentCount > 0 && (
+
+                {post.comments.length > 0 && (
                     <CommentList comments={post.comments} />
                 )}
                 {Auth.loggedIn() && <CommentForm postId={post._id} />}
-                
-
-                
             </Card>
 
             <div >

@@ -18,11 +18,12 @@ const CommentForm = ({ postId }) => {
 
   // submit form
   const handleFormSubmit = async (event) => {
+    console.log(commentBody)
     event.preventDefault();
 
     try {
       await addComment({
-        variables: { commentBody, postId },
+        variables: { postId, commentBody },
       });
 
       // clear form value
