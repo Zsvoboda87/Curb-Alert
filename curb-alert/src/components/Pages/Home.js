@@ -1,6 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
+import { Route, Link } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
 import Feed from '../Feed/index.js';
 import Profile from '../Profile/index.js';
@@ -28,6 +27,7 @@ function Home() {
             </Col>
 
             <Col xs={12} md={9} className="curb">
+
 
                 <Route exact path="/" component={Feed} />
                 <Route exact path="/post/:id" component={PostSingle} />
