@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { REMOVE_POST } from '../../utils/mutations';
 import { Button } from 'react-bootstrap';
-import { QUERY_ME, QUERY_POSTS } from '../../utils/queries';
+import { QUERY_ME } from '../../utils/queries';
 import { useParams } from 'react-router-dom';
 
 
@@ -14,13 +14,8 @@ const PostList = ({ posts, user }) => {
 
     const isEmpty = Object.keys(userParam).length === 0;
 
-    console.log(isEmpty);
 
-    // console.log(userParam)
-
-    console.log(user)
-
-    const [removePost, { error }] = useMutation(REMOVE_POST, {
+    const [removePost] = useMutation(REMOVE_POST, {
         update(cache, {data: { removePost }}) {
 
             try {
@@ -31,28 +26,21 @@ const PostList = ({ posts, user }) => {
                     data: { me: { ...me, posts: [...me.posts.filter((post) => post._id !== removePost._id)]}}
                 })
             } catch (e) {
-                console.warn('First thought insertion by user')
+                console.warn('Removal failed')
             }
-            // scrap
-            // const { posts } = cache.readQuery({ query: QUERY_POSTS});
 
-            // cache.writeQuery({
-            //     query:  QUERY_POSTS,
-            //     data: { posts: [...posts] }
-            // });
         }
     });
 
     if (!posts || !posts.length) {
         return (
             <>
-            <p className='conditional-title'>Add an item to your curb!</p>;
+            <p className='conditional-title'>No items on the curb!</p>;
             </>
         )
     }
 
     const handleDelete = async (postId) => {
-        console.log(postId)
         try {
             await removePost({
                 variables: { _id: postId }
@@ -72,7 +60,7 @@ const PostList = ({ posts, user }) => {
                 {posts &&
                     posts.map(post => (
 
-                        < Card id="feed-item" className="flex-center" style={{ width: '23vw', height: '50vh', margin: '.5rem' }}>
+                        < Card id="feed-item" className="flex-center" style={{ width: '23vw', height: '58vh', margin: '.5rem' }}>
                             <Link to={`/post/${post._id}`}>
                                 <Card.Title>{post.itemTitle}</Card.Title>
                                 <Card.Img id="card-img" style={{ width: '98%', height: '45vh', margin: 'auto' }}
