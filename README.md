@@ -20,6 +20,7 @@ https://github.com/Zsvoboda87/Curb-Alert
 https://evening-lake-24716.herokuapp.com/  
 
 # Preview
+![Curb Alert homepage screenshot](./curb-alert/public/images/curb-alert-screenshot.png)
 
 
 # Installation
