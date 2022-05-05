@@ -81,11 +81,11 @@ mutation updateProfile(  $userImage: String, $userDescription: String) {
   }
   `
 
-  export const ADD_COMMENT = gql`
+export const ADD_COMMENT = gql`
   mutation addComment($postId: ID!, $commentBody: String!) {
     addComment(postId: $postId, commentBody: $commentBody) {
       _id
-      commentCount
+      
       comments {
         _id
         commentBody

@@ -61,6 +61,12 @@ query post($id: ID!) {
     itemCategory
     imageURL
     username
+    comments {
+      _id
+      commentBody
+      createdAt
+      username
+    }
     }
   }
 `;
