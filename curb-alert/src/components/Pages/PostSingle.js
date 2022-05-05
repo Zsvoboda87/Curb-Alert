@@ -41,11 +41,14 @@ export default function PostSingle() {
                     <Card.Title>{post.itemTitle}</Card.Title>
                     <Card.Text>
                         <div>
-                            <Link to={`/userprofile/${post.username}`}>
-                                <div className='post-title-item'>
-                                    posted by: {post.username}
-                                </div>
-                            </Link>
+                            <div className='post-title-item-link'>
+                                posted by: {' '}
+                                <Link to={`/userprofile/${post.username}`}>
+                                    
+                                    {post.username}
+                                    
+                                </Link>
+                            </div>
                             <div className='post-title-item'>
                                 {post.itemDescription}
                             </div>
