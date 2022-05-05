@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_POST } from '../../utils/queries';
+import { QUERY_POST, QUERY_USER } from '../../utils/queries';
 import DisplayMap from '../AddPost/DisplayMap';
 
 
@@ -21,7 +21,10 @@ export default function PostSingle() {
     const { loading, data } = useQuery(QUERY_POST, {
         variables: { id: postId }
     });
+    const user = data?.user || {};
     const post = data?.post || {};
+
+    console.log(user.email);
 
     if (loading) {
         return <div>Loading...</div>;
@@ -31,7 +34,7 @@ export default function PostSingle() {
         <div className='flex-center'>
             <Card id="feed-item" style={{ width: '50vw' }} >
                 <CardHeader id="postSingle-header" className='flex-space-betweeen' >
-                    <Button id="button-singlePost" variant="primary" href="mailto:{ $">Message the Owner</Button>
+                    <Button id="button-singlePost" variant="primary" href="mailto:"{user.email}>Message the Owner</Button>
                     <Link to={`/`}>
                         <Button id="button-singlePost" variant="primary">Back to the Curb</Button>
                     </Link>
