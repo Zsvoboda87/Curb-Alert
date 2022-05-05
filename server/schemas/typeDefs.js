@@ -21,7 +21,7 @@ const typeDefs = gql`
     itemCategory: String
     createdAt: String
     username: String
-
+    comments: [Comment]
   }
 
   type Comment {
