@@ -17,9 +17,11 @@ This project was built with HTML, CSS, JavaScript, Node, Express, React, GraphQL
 
 # Link 
 https://github.com/Zsvoboda87/Curb-Alert
-https://evening-lake-24716.herokuapp.com/  
+
+https://powerful-basin-06230.herokuapp.com/ 
 
 # Preview
+![Screenshot](./screenshot.PNG "Screenshot")
 
 
 # Installation
