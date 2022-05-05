@@ -56,6 +56,7 @@ function Feed() {
                 <Select placeholder='Search for items' onChange={(e) => handleCategoryChange(e.target.value)}>
                     <option value='building materials'>Building Materials</option>
                     <option value='clothing'>Clothing</option>
+                    <option value='electronics'>Electronics</option>
                     <option value='furniture'>Furniture</option>
                     <option value='home and garden'>Home and Garden</option>
                     <option value='office supplies'>Office Supplies</option>
