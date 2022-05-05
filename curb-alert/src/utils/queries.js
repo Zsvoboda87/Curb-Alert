@@ -16,19 +16,20 @@ query  {
       }
     }
   }
-`
+`;
 
 
 export const QUERY_USER = gql`
 query user($username: String!) {
-  user(username: $userame) {
+  user(username: $username) {
     _id
     username
+    userImage
     email
     posts {
       _id
       itemTitle
-      imageUrl
+      imageURL
       createdAt
     }
   }
@@ -48,7 +49,7 @@ query  {
       createdAt
     }
   }
-`
+`;
 
 export const QUERY_POST = gql`
 query post($id: ID!) {

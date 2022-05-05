@@ -5,9 +5,21 @@ import { useMutation } from '@apollo/client';
 import { REMOVE_POST } from '../../utils/mutations';
 import { Button } from 'react-bootstrap';
 import { QUERY_ME, QUERY_POSTS } from '../../utils/queries';
+import { useParams } from 'react-router-dom';
 
 
 const PostList = ({ posts, user }) => {
+
+    const userParam = useParams();
+
+    const isEmpty = Object.keys(userParam).length === 0;
+
+    console.log(isEmpty);
+
+    // console.log(userParam)
+
+    console.log(user)
+
     const [removePost, { error }] = useMutation(REMOVE_POST, {
         update(cache, {data: { removePost }}) {
 
@@ -67,7 +79,7 @@ const PostList = ({ posts, user }) => {
                                     variant="top" src={post.imageURL} 
                                 />
                             </Link>
-                            <Button id="delete-button" onClick={() =>handleDelete(post._id)}>Delete Post</Button>
+                            {isEmpty && <Button id="delete-button" onClick={() =>handleDelete(post._id)}>Delete Post</Button>}
                         </Card >
                     ))
                 }
@@ -76,34 +88,5 @@ const PostList = ({ posts, user }) => {
     )
 }
 
-// const PostList = ({ posts, title }) => {
-
-//     if (!posts || !posts.length) {
-//         return <p>{title}, add some things to your curb!</p>;
-//     }
-
-//     return (
-//         <div>
-//             <div className='curb-header user-profile-title'>
-//                 <h3>{title}</h3>
-//             </div>
-//             <div className="feed">
-//                 {' '}
-//                 {posts &&
-//                     posts.map(post => (
-//                         <Link to={`/post/${post._id}`}>
-//                             < Card id="feed-item" className="flex-center" style={{ width: '23vw', height: '50vh', margin: '.5rem' }}>
-//                                 <Card.Title>{post.itemTitle}</Card.Title>
-//                                 <Card.Img id="card-img" style={{ width: '98%', height: '45vh', margin: 'auto' }}
-//                                     variant="top" src={post.imageURL} />
-
-//                             </Card >
-//                         </Link>
-//                     ))
-//                 }
-//             </div>
-//         </div>
-//     )
-// }
 
 export default PostList;
