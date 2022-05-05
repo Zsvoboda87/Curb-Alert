@@ -101,7 +101,7 @@ const resolvers = {
                 const updatedPost = await Post.findOneAndUpdate(
                     { _id: postId },
 
-                    { $addToSet: { comments: { commentBody, username: context.user.username } } },
+                    { $push: { comments: { commentBody, username: context.user.username } } },
                     { new: true, runValidators: true }
                 );
 
