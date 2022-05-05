@@ -2,7 +2,7 @@ import React from 'react';
 import PostList from '../PostList'
 import { useParams, Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
-import { QUERY_ME, QUERY_USER } from '../../utils/queries';
+import { QUERY_USER } from '../../utils/queries';
 import Auth from '../../utils/auth';
 
 
@@ -17,8 +17,6 @@ const OthersProfile = () => {
 
 	const user = data?.user || {};
 
-    console.log(userParam);
-    console.log(user);
 
     if (Auth.loggedIn() && Auth.getProfile().data.username === userParam) {
         return <Redirect to="/userprofile" />;
