@@ -26,6 +26,7 @@ query user($username: String!) {
     username
     userImage
     email
+    userDescription
     posts {
       _id
       itemTitle
