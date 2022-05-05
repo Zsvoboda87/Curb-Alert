@@ -61,21 +61,10 @@ query post($id: ID!) {
     itemCategory
     imageURL
     username
+    comments
     }
   }
 `;
-
-export const QUERY_COMMENTS = gql`
-query  {
-    comments {
-      _id
-      username
-      createdAt
-      commentBody
-    }
-  }
-`
-
 
 export const QUERY_ME = gql`
   {

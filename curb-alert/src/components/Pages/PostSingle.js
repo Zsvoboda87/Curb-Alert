@@ -1,6 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useQuery, useMutation } from '@apollo/client';
+import { useQuery } from '@apollo/client';
 import { QUERY_POST, QUERY_USER } from '../../utils/queries';
 import DisplayMap from '../AddPost/DisplayMap';
 
@@ -59,15 +59,11 @@ export default function PostSingle() {
                         </div>
                     </Card.Text>
                     <Card.Img variant="top" src={post.imageURL} />
-                </Card.Body>
-                
-                {post.commentCount > 0 && (
+                    {Auth.loggedIn() && <CommentForm postId={post._id} />}
+                    {post.commentCount > 0 && (
                     <CommentList comments={post.comment} />
-                )}
-                {Auth.loggedIn() && <CommentForm postId={post._id} />}
-                
-
-                
+                    )} 
+                </Card.Body> 
             </Card>
 
             <div >
