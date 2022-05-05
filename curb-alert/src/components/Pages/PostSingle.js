@@ -40,7 +40,19 @@ export default function PostSingle() {
                 <Card.Body className='flex-center'>
                     <Card.Title>{post.itemTitle}</Card.Title>
                     <Card.Text>
-                        {post.itemDescription}
+                        <div>
+                            <div className='post-title-item-link'>
+                                posted by: {' '}
+                                <Link to={`/userprofile/${post.username}`}>
+                                    
+                                    {post.username}
+                                    
+                                </Link>
+                            </div>
+                            <div className='post-title-item'>
+                                {post.itemDescription}
+                            </div>
+                        </div>
                     </Card.Text>
                     <Card.Img variant="top" src={post.imageURL} />
                 </Card.Body>

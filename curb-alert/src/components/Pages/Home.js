@@ -1,21 +1,29 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import { Row, Col } from 'react-bootstrap';
 import Feed from '../Feed/index.js';
 import Profile from '../Profile/index.js';
 import PostSingle from './PostSingle.js';
-import UserProfile from './UserProfile'
+import UserProfile from './UserProfile';
+import OthersProfile from './OthersProfile'
+
+
+
 
 function Home() {
     return (
         <Row className="main-row">
             <Col className="profile-section">
-                <div className="header">
-                    <img className='logo' src="../images/logo.png" />
-                    <h1 className="title">Curb Alert</h1>
+                <Link to={'/'}> 
+                    <div className="header">
+                        
+                        <img className='logo' src="../images/logo.png" alt="logo" />
+                        
+                        <h1 className="title">Curb Alert</h1>
 
-                </div>
+                    </div>
+                </Link>
                 <Profile />
             </Col>
 
@@ -24,6 +32,7 @@ function Home() {
                 <Route exact path="/" component={Feed} />
                 <Route exact path="/post/:id" component={PostSingle} />
                 <Route exact path="/userprofile" component={UserProfile} />
+                <Route exact path="/userprofile/:username" component={OthersProfile} />
 
 
             </Col>
