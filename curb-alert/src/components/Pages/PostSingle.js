@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { QUERY_POST } from '../../utils/queries';
+import { QUERY_POST, QUERY_USER } from '../../utils/queries';
 import DisplayMap from '../AddPost/DisplayMap';
 
 
@@ -12,6 +12,7 @@ import { isRequiredArgument } from 'graphql';
 import CommentList from '../Comment/index';
 import CommentForm from '../Comment/CommentForm';
 import Auth from '../../utils/auth';
+import Message from '../Message';
 
 
 
@@ -22,7 +23,6 @@ export default function PostSingle() {
         variables: { id: postId }
     });
     const post = data?.post || {};
-    console.log(post)
 
     if (loading) {
         return <div>Loading...</div>;
@@ -32,7 +32,7 @@ export default function PostSingle() {
         <div className='flex-center'>
             <Card id="feed-item" style={{ width: '50vw' }} >
                 <CardHeader id="postSingle-header" className='flex-space-betweeen' >
-                    <Button id="button-singlePost" variant="primary">Message the Owner</Button>
+                    <Message username={post.username}></Message>
                     <Link to={`/`}>
                         <Button id="button-singlePost" variant="primary">Back to the Curb</Button>
                     </Link>
