@@ -12,8 +12,7 @@ import { Link, Redirect, useHistory } from 'react-router-dom';
 
 function Profile() {
 
-    const { loading, data } = useQuery(QUERY_ME_BASIC);
-    const userData = data?.me || data?.user || {};
+    const { data: userData } = useQuery(QUERY_ME_BASIC);
 
     const loggedIn = Auth.loggedIn();
 

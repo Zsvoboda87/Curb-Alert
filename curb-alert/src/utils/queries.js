@@ -64,6 +64,18 @@ query post($id: ID!) {
   }
 `;
 
+export const QUERY_COMMENTS = gql`
+query  {
+    comments {
+      _id
+      username
+      createdAt
+      commentBody
+    }
+  }
+`
+
+
 export const QUERY_ME = gql`
   {
     me {

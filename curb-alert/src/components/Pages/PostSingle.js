@@ -9,8 +9,8 @@ import { Card, Button } from 'react-bootstrap';
 import CardHeader from 'react-bootstrap/esm/CardHeader';
 import { isRequiredArgument } from 'graphql';
 
-import CommentList from '../Comment/index';
-import CommentForm from '../Comment/CommentForm';
+import CommentList from '../CommentList/index';
+import CommentForm from '../CommentForm/CommentForm';
 import Auth from '../../utils/auth';
 
 
@@ -31,7 +31,7 @@ export default function PostSingle() {
         <div className='flex-center'>
             <Card id="feed-item" style={{ width: '50vw' }} >
                 <CardHeader id="postSingle-header" className='flex-space-betweeen' >
-                    <Button id="button-singlePost" variant="primary">Message the Owner</Button>
+                    <Button id="button-singlePost" variant="primary" href="mailto:{ $">Message the Owner</Button>
                     <Link to={`/`}>
                         <Button id="button-singlePost" variant="primary">Back to the Curb</Button>
                     </Link>
@@ -45,8 +45,8 @@ export default function PostSingle() {
                     <Card.Img variant="top" src={post.imageURL} />
                 </Card.Body>
                 
-                {post.CommentCount > 0 && (
-                    <CommentList comments={post.comments} />
+                {post.commentCount > 0 && (
+                    <CommentList comments={post.comment} />
                 )}
                 {Auth.loggedIn() && <CommentForm postId={post._id} />}
                 
