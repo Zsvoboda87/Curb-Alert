@@ -40,11 +40,13 @@ function Profile() {
             {loggedIn ? (
                 <>
                     <AddPost />
+                    <div class="large-button">
                     <Button id="button">Messages</Button>
                     <Button id="button" onClick={routeChange}>
                         View Profile
                     </Button>
                     <Button id="button" onClick={logout}>Logout</Button>
+                    </div>
                 </>
             ) : (
                 <>

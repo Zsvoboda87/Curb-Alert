@@ -273,3 +273,39 @@ h1, h2{
   width: 50vw;
   height: 50vh;
 }
+
+/*Media Query for Smaller Desktop Screens and Smaller*/
+@media screen and (max-width: 980px) {
+
+.main-row {
+  height: 10%;
+}
+.profile-section {
+  max-height: 10%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap-reverse;
+}
+.profile-header {
+  max-width: 100%;
+  display: block;
+}
+
+.user-profile-image {
+  width: 50px;
+  height: 50px;
+}
+
+.logo {
+  width: 9%;
+}
+.title {
+  font-size: 2rem;
+}
+
+.large-button {
+  display: none;
+}
+
+}
