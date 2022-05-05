@@ -12,7 +12,7 @@ export default function AddPostPromptLogin() {
 
 
     return (
-        <Button id="button"
+        <Button id="button" class="main-button dropdown"
             onClick={handlePrompt}
         >Add an Item</Button>
     )

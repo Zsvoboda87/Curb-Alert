@@ -273,3 +273,53 @@ h1, h2{
   width: 50vw;
   height: 50vh;
 }
+
+/*Media Query for Smaller Desktop Screens and Smaller*/
+@media screen and (max-width: 769px) {
+.main-row {
+  height: 10%;
+  width: 100%;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-section.col{
+  max-height: 10%;
+  max-width: 100%;
+  flex: none;
+}
+
+.profile-header {
+  max-width: 50%;
+  flex-direction: row-reverse;
+
+}
+
+.user-profile-image {
+  width: 50px;
+  height: 50px;
+}
+
+.logo {
+  width: 10%;
+}
+.title {
+  font-size: 25px;
+}
+#button {
+  height: 55px;
+  font-size: 10px;
+}
+
+.header {
+  display: flex;
+  max-width: 75%;
+  justify-content: flex-start;
+}
+
+
+
+}
