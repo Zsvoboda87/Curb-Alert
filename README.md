@@ -17,11 +17,10 @@ This project was built with HTML, CSS, JavaScript, Node, Express, React, GraphQL
 
 # Link 
 https://github.com/Zsvoboda87/Curb-Alert
-
 https://powerful-basin-06230.herokuapp.com/ 
 
 # Preview
-![Screenshot](/screenshot.PNG "Screenshot")
+![Screenshot](screenshot.PNG "Screenshot")
 
 
 # Installation
