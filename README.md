@@ -21,7 +21,7 @@ https://github.com/Zsvoboda87/Curb-Alert
 https://powerful-basin-06230.herokuapp.com/ 
 
 # Preview
-![Screenshot](./screenshot.PNG "Screenshot")
+![Screenshot](/screenshot.PNG "Screenshot")
 
 
 # Installation
