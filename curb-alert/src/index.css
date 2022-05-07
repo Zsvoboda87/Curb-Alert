@@ -184,10 +184,14 @@ h1, h2{
   flex-wrap: wrap;
 }
 
+
 #feed-item{
   background-color: var(--secondary-color);
   border: 2px solid var(--secondary-color);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  width: 23vw; 
+  height: 50vh; 
+  margin: .5rem;
 }
 
 .pagination-btn{
@@ -231,6 +235,9 @@ h1, h2{
 }
 
 #card-img{
+  width: 98%;
+  height: 45vh;
+  margin: auto;
   object-fit: cover;
 }
 
@@ -273,6 +280,15 @@ h1, h2{
   width: 50vw;
   height: 50vh;
 }
+
+@media screen and (max-width: 900px) {
+  #feed-item{
+    width: 32vw; 
+    height: 50vh; 
+    margin: .5rem;
+  }
+}
+
 
 /*Media Query for Smaller Desktop Screens and Smaller*/
 @media screen and (max-width: 769px) {
@@ -320,6 +336,19 @@ h1, h2{
   justify-content: flex-start;
 }
 
+#feed-item{
+  width: 44vw; 
+  height: 50vh; 
+  margin: .5rem;
+}
 
 
+}
+
+@media screen and (max-width: 600px) {
+  #feed-item{
+    width: 85vw; 
+    height: 60vh; 
+    margin: .5rem;
+  }
 }
