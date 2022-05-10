@@ -65,7 +65,7 @@ export default function PostSingle() {
             </Card>
 
             <div >
-                <DisplayMap />
+                {/* <DisplayMap /> */}
             </div>
 
         </div >
