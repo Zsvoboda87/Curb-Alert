@@ -16,6 +16,8 @@ import { FormControl, FormLabel, Input, Select, Textarea } from '@chakra-ui/reac
 import { Button } from 'react-bootstrap';
 import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 
+import GoogleMap from './addPostMap';
+
 
 
 
@@ -158,7 +160,8 @@ export default function AddPost() {
                         </FormControl>
                         <FormLabel>Upload an Image:</FormLabel>
                         <Input type="file" onChange={(e) => setImage(e.target.files[0])} />
-
+                        <FormLabel>Location:</FormLabel>
+                        <GoogleMap></GoogleMap>
                     </ModalBody>
 
 

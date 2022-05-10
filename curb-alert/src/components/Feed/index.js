@@ -35,7 +35,7 @@ function Feed() {
                 <Link to={`/post/${post._id}`}>
                     < Card id="feed-item" className="flex-center" >
                         <Card.Title>{post.itemTitle}</Card.Title>
-                        <Card.Img id="card-img"
+                        <Card.Img id="card-img" 
                             variant="top" src={post.imageURL} />
 
                     </Card >

@@ -16,14 +16,14 @@ const PostList = ({ posts, user }) => {
 
 
     const [removePost] = useMutation(REMOVE_POST, {
-        update(cache, {data: { removePost }}) {
+        update(cache, { data: { removePost } }) {
 
             try {
                 const { me } = cache.readQuery({ query: QUERY_ME });
 
                 cache.writeQuery({
                     query: QUERY_ME,
-                    data: { me: { ...me, posts: [...me.posts.filter((post) => post._id !== removePost._id)]}}
+                    data: { me: { ...me, posts: [...me.posts.filter((post) => post._id !== removePost._id)] } }
                 })
             } catch (e) {
                 console.warn('Removal failed')
@@ -35,7 +35,7 @@ const PostList = ({ posts, user }) => {
     if (!posts || !posts.length) {
         return (
             <>
-            <p className='conditional-title'>No items on the curb!</p>;
+                <p className='conditional-title'>No items on the curb!</p>;
             </>
         )
     }
@@ -60,14 +60,14 @@ const PostList = ({ posts, user }) => {
                 {posts &&
                     posts.map(post => (
 
-                        < Card id="feed-item" className="flex-center" style={{ width: '23vw', height: '58vh', margin: '.5rem' }}>
+                        < Card id="feed-item" className="flex-center" >
                             <Link to={`/post/${post._id}`}>
                                 <Card.Title>{post.itemTitle}</Card.Title>
-                                <Card.Img id="card-img" style={{ width: '98%', height: '45vh', margin: 'auto' }}
-                                    variant="top" src={post.imageURL} 
+                                <Card.Img id="card-img"
+                                    variant="top" src={post.imageURL}
                                 />
                             </Link>
-                            {isEmpty && <Button id="delete-button" onClick={() =>handleDelete(post._id)}>Delete Post</Button>}
+                            {isEmpty && <Button id="delete-button" onClick={() => handleDelete(post._id)}>Delete Post</Button>}
                         </Card >
                     ))
                 }

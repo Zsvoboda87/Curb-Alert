@@ -1,26 +1,117 @@
 
-import { useMemo } from "react";
-import {
-    useJsApiLoader,
-    GoogleMap,
-    Marker
-} from '@react-google-maps/api'
+import React, { Component } from 'react';
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import PlacesAutocomplete, {
+    geocodeByAddress,
+    getLatLng,
+} from 'react-places-autocomplete';
 
-export default function AddMap() {
-    const center = useMemo(() => ({ lat: 41.4, lng: -81.7 }), []);
+import { Input } from '@chakra-ui/react';
 
-    const { isLoaded } = useJsApiLoader({
-        googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+export class MapContainer extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            // for google map places autocomplete
+            address: '',
 
-    })
+            showingInfoWindow: false,
+            activeMarker: {},
+            selectedPlace: {},
 
-    if (!isLoaded) return <div>Loading...</div>;
-    return (
-        <GoogleMap zoom={12} center={center} mapContainerClassName="map-container">
-            <Marker position={{ lat: 41.4, lng: -81.7 }} />
-        </GoogleMap>
-    );
+            mapCenter: {
+                lat: 41.4,
+                lng: -81.7
 
+            }
+        };
+    }
+
+    handleChange = address => {
+        this.setState({ address });
+    };
+
+    handleSelect = address => {
+        this.setState({ address });
+        geocodeByAddress(address)
+            .then(results => getLatLng(results[0]))
+            .then(latLng => {
+                console.log('Success', latLng);
+
+                // update center state
+                this.setState({ mapCenter: latLng });
+            })
+            .catch(error => console.error('Error', error));
+    };
+
+    render() {
+        return (
+            <div id='googleMaps'>
+                <PlacesAutocomplete
+                    value={this.state.address}
+                    onChange={this.handleChange}
+                    onSelect={this.handleSelect}
+                >
+                    {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                        <div>
+                            <Input
+                                {...getInputProps({
+                                    placeholder: 'Search Places ...',
+                                    className: 'location-search-input',
+                                })}
+                            />
+                            <div className="autocomplete-dropdown-container">
+                                {loading && <div>Loading...</div>}
+                                {suggestions.map(suggestion => {
+                                    const className = suggestion.active
+                                        ? 'suggestion-item--active'
+                                        : 'suggestion-item';
+                                    // inline style for demonstration purpose
+                                    const style = suggestion.active
+                                        ? { backgroundColor: '#fafafa', cursor: 'pointer' }
+                                        : { backgroundColor: '#ffffff', cursor: 'pointer' };
+                                    return (
+                                        <div
+                                            {...getSuggestionItemProps(suggestion, {
+                                                className,
+                                                style,
+                                            })}
+                                        >
+                                            <span>{suggestion.description}</span>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </div>
+                    )}
+                </PlacesAutocomplete>
+
+                <Map
+                    containerStyle={{ position: "static" }}
+                    style={{ position: 'static', width: '100%', height: '50vh' }}
+                    zoom={10}
+                    google={this.props.google}
+                    initialCenter={{
+                        lat: this.state.mapCenter.lat,
+                        lng: this.state.mapCenter.lng
+                    }}
+                    center={{
+                        lat: this.state.mapCenter.lat,
+                        lng: this.state.mapCenter.lng
+                    }}
+
+                >
+                    <Marker
+                        position={{
+                            lat: this.state.mapCenter.lat,
+                            lng: this.state.mapCenter.lng
+                        }} />
+                </Map>
+            </div >
+        )
+    }
 }
 
-
+export default GoogleApiWrapper({
+    apiKey: ('AIzaSyBuE6oMF0YMNhz2ZtJ_dSgasypV9uPBgxg')
+})(MapContainer)
