@@ -30,7 +30,7 @@ export default function PostSingle() {
 
     return (
         <div className='flex-center'>
-            <Card id="feed-item" style={{ width: '50vw' }} >
+            <Card id="post-single" style={{ width: '50vw' }} >
                 <CardHeader id="postSingle-header" className='flex-space-betweeen' >
                     <Message username={post.username}></Message>
                     <Link to={`/`}>
@@ -55,7 +55,7 @@ export default function PostSingle() {
                             </div>
                         </div>
                     </Card.Text>
-                    <Card.Img variant="top" src={post.imageURL} />
+                    <Card.Img src={post.imageURL} />
                 </Card.Body>
 
                 {post.comments.length > 0 && (
