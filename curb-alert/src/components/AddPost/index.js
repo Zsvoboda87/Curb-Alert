@@ -17,11 +17,10 @@ import { Button } from 'react-bootstrap';
 import { QUERY_POSTS, QUERY_ME } from '../../utils/queries';
 
 import GoogleMap from './addPostMap';
+import { withGlobalState } from 'react-globally'
 
+const AddPost = (props) => {
 
-
-
-export default function AddPost() {
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     const initialRef = React.useRef()
@@ -33,6 +32,9 @@ export default function AddPost() {
     const [itemTitle, setItemTitle] = useState('')
     const [itemDescription, setItemDescription] = useState('')
     const [itemCategory, setItemCategory] = useState('')
+
+    // console.log(props.globalState.mapCenter)
+
 
     const [addPost, { error }] = useMutation(ADD_POST, {
         update(cache, { data: { addPost } }) {
@@ -99,10 +101,9 @@ export default function AddPost() {
         const imageUrlData = await responseData.json()
         onClose()
 
-
         try {
             await addPost({
-                variables: { itemTitle, itemDescription, imageURL: imageUrlData.url, itemCategory }
+                variables: { itemTitle, itemDescription, imageURL: imageUrlData.url, itemCategory, itemLat: `${props.globalState.mapCenter.lat}`, itemLng: `${props.globalState.mapCenter.lng}` }
             });
         } catch (e) {
             console.error(e);
@@ -178,3 +179,5 @@ export default function AddPost() {
         </>
     )
 }
+
+export default withGlobalState(AddPost)

@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import PlacesAutocomplete, {
     geocodeByAddress,
@@ -7,10 +7,13 @@ import PlacesAutocomplete, {
 } from 'react-places-autocomplete';
 
 import { Input } from '@chakra-ui/react';
+import { withGlobalState } from 'react-globally'
 
 export class MapContainer extends Component {
     constructor(props) {
+
         super(props);
+
         this.state = {
             // for google map places autocomplete
             address: '',
@@ -25,7 +28,9 @@ export class MapContainer extends Component {
 
             }
         };
-    }
+
+
+    };
 
     handleChange = address => {
         this.setState({ address });
@@ -36,10 +41,10 @@ export class MapContainer extends Component {
         geocodeByAddress(address)
             .then(results => getLatLng(results[0]))
             .then(latLng => {
-                console.log('Success', latLng);
-
+                // console.log('Success', latLng);
                 // update center state
                 this.setState({ mapCenter: latLng });
+                this.props.setGlobalState({ mapCenter: latLng })
             })
             .catch(error => console.error('Error', error));
     };
@@ -112,6 +117,6 @@ export class MapContainer extends Component {
     }
 }
 
-export default GoogleApiWrapper({
+export default withGlobalState(GoogleApiWrapper({
     apiKey: ('AIzaSyBuE6oMF0YMNhz2ZtJ_dSgasypV9uPBgxg')
-})(MapContainer)
+})(MapContainer))

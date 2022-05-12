@@ -81,6 +81,12 @@ const postSchema = new Schema(
     itemCategory: {
       type: String
     },
+    itemLat: {
+      type: String
+    },
+    itemLng: {
+      type: String
+    },
     createdAt: {
       type: Date,
       default: Date.now,
