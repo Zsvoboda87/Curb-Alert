@@ -33,7 +33,7 @@ const AddPost = (props) => {
     const [itemDescription, setItemDescription] = useState('')
     const [itemCategory, setItemCategory] = useState('')
 
-    console.log(props.globalState.mapCenter)
+    // console.log(props.globalState.mapCenter)
 
 
     const [addPost, { error }] = useMutation(ADD_POST, {
@@ -103,7 +103,7 @@ const AddPost = (props) => {
 
         try {
             await addPost({
-                variables: { itemTitle, itemDescription, imageURL: imageUrlData.url, itemCategory, itemLat: props.globalState.mapCenter.lat, itemLng: props.globalState.mapCenter.lng }
+                variables: { itemTitle, itemDescription, imageURL: imageUrlData.url, itemCategory, itemLat: `${props.globalState.mapCenter.lat}`, itemLng: `${props.globalState.mapCenter.lng}` }
             });
         } catch (e) {
             console.error(e);

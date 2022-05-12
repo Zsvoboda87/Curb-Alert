@@ -61,6 +61,8 @@ query post($id: ID!) {
     itemDescription
     itemCategory
     imageURL
+    itemLat
+    itemLng
     username
     comments {
       _id

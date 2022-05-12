@@ -6,7 +6,6 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter as Router, Switch, } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { setContext } from '@apollo/client/link/context';
-// import { StoreProvider } from "./utils/GlobalState";
 import { Provider } from 'react-globally'
 
 export const customHistory = createBrowserHistory();
