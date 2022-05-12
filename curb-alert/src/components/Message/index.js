@@ -6,13 +6,13 @@ import { Button } from 'react-bootstrap';
 
 const Message = ({ username }) => {
 
-    console.log(username)
+
     const { loading, data } = useQuery(QUERY_USER, {
         variables: { username: username }
     });
 
     const user = data?.user || {};
-    console.log(data);
+
 
     return (
 

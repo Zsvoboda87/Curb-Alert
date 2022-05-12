@@ -21,7 +21,7 @@ export default function DisplayMap(postLat) {
 
     if (!isLoaded) return <div>Loading...</div>;
     return (
-        <GoogleMap zoom={12} center={center} mapContainerClassName="map-container">
+        <GoogleMap zoom={14} center={center} mapContainerClassName="map-container">
             <Marker position={center} />
         </GoogleMap>
     );

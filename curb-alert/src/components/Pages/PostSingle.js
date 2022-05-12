@@ -34,7 +34,7 @@ export default function PostSingle() {
         <div className='flex-center'>
             <Card id="post-single" style={{ width: '50vw' }} >
                 <CardHeader id="postSingle-header" className='flex-space-betweeen' >
-                    {/* <Message username={post.username}></Message> */}
+                    <Message username={post.username}></Message>
                     <Link to={`/`}>
                         <Button id="button-singlePost" variant="primary">Back to the Curb</Button>
                     </Link>
