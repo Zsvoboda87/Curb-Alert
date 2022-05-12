@@ -9,9 +9,6 @@ import PlacesAutocomplete, {
 import { Input } from '@chakra-ui/react';
 import { withGlobalState } from 'react-globally'
 
-
-
-
 export class MapContainer extends Component {
     constructor(props) {
 
@@ -35,10 +32,6 @@ export class MapContainer extends Component {
 
     };
 
-
-
-
-
     handleChange = address => {
         this.setState({ address });
     };
@@ -55,8 +48,6 @@ export class MapContainer extends Component {
             })
             .catch(error => console.error('Error', error));
     };
-
-
 
     render() {
         return (
