@@ -6,8 +6,13 @@ import {
     Marker
 } from '@react-google-maps/api'
 
-export default function DisplayMap() {
-    const center = useMemo(() => ({ lat: 41.4, lng: -81.7 }), []);
+export default function DisplayMap(postLat) {
+    const x = parseFloat(postLat.postLat)
+    const y = parseFloat(postLat.postLng)
+
+
+
+    const center = useMemo(() => ({ lat: x, lng: y }), []);
 
     const { isLoaded } = useJsApiLoader({
         googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,

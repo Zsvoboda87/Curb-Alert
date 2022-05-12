@@ -4,15 +4,15 @@ import { QUERY_USER } from '../../utils/queries';
 import { Button } from 'react-bootstrap';
 
 
-const Message = ({username}) => {
+const Message = ({ username }) => {
 
     console.log(username)
     const { loading, data } = useQuery(QUERY_USER, {
-		variables: { username: username }
-	});
+        variables: { username: username }
+    });
 
     const user = data?.user || {};
-    console.log(user.email);
+    console.log(data);
 
     return (
 
