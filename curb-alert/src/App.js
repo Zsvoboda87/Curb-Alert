@@ -6,9 +6,17 @@ import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter as Router, Switch, } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 import { setContext } from '@apollo/client/link/context';
-
+// import { StoreProvider } from "./utils/GlobalState";
+import { Provider } from 'react-globally'
 
 export const customHistory = createBrowserHistory();
+
+const initState = {
+  mapCenter: {
+    lat: 41.4,
+    lng: -81.7
+  }
+}
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -33,15 +41,17 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router forceRefresh={true}>
-        <ChakraProvider>
-          <Switch>
+      <Provider globalState={initState}>
+        <Router forceRefresh={true}>
+          <ChakraProvider>
+            <Switch>
 
-            <Home></Home>
+              <Home></Home>
 
-          </Switch>
-        </ChakraProvider>
-      </Router>
+            </Switch>
+          </ChakraProvider>
+        </Router>
+      </Provider>
     </ApolloProvider>
   );
 }

@@ -1,0 +1,1 @@
+export const UPDATE_COORDS = "UPDATE_COORDS";
