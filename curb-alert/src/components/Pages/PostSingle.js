@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
 import { QUERY_POST, QUERY_USER } from '../../utils/queries';
-import DisplayMap from '../AddPost/DisplayMap';
+import DisplayMap from '../Maps/DisplayMap';
 
 
 import { Card, Button } from 'react-bootstrap';

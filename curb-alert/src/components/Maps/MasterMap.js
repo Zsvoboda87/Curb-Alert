@@ -1,4 +1,3 @@
-
 import { useMemo } from "react";
 import {
     useJsApiLoader,
@@ -6,7 +5,7 @@ import {
     Marker
 } from '@react-google-maps/api'
 
-export default function DisplayMap(postLat) {
+export default function MasterMap(postLat) {
     const x = parseFloat(postLat.postLat)
     const y = parseFloat(postLat.postLng)
 
@@ -27,5 +26,3 @@ export default function DisplayMap(postLat) {
     );
 
 }
-
-
