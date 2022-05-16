@@ -29,7 +29,7 @@ export default function MasterMap() {
 
     if (!isLoaded) return <div>Loading...</div>;
     return (
-        <GoogleMap zoom={10} center={center} mapContainerClassName="map-container">
+        <GoogleMap zoom={10} center={center} mapContainerClassName="master-map-container">
             {posts.map(post => {
                 < Marker center={{ lat: (parseFloat(post.itemLat)), lng: (parseFloat(post.itemLng)) }} ></Marker>
             })}

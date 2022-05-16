@@ -1,9 +1,7 @@
-import React, { State, useState } from "react";
+import React, { useState } from "react";
 import { Card } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import { QUERY_POSTS } from '../../utils/queries'
-
-import AddPost from '../AddPost'
 import { Select } from '@chakra-ui/react'
 
 import { Link } from 'react-router-dom'
@@ -33,7 +31,8 @@ function Feed() {
         .map(post => {
             return (
                 <Link to={`/post/${post._id}`}>
-                    < Card id="feed-item" className="flex-center" >
+                    < Card
+                        key={post._id} id="feed-item" className="flex-center" >
                         <Card.Title>{post.itemTitle}</Card.Title>
                         <Card.Img id="card-img"
                             variant="top" src={post.imageURL} />
