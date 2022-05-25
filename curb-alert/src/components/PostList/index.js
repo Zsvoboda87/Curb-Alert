@@ -60,7 +60,7 @@ const PostList = ({ posts, user }) => {
                 {posts &&
                     posts.map(post => (
 
-                        < Card id="feed-item" className="flex-center" >
+                        < Card key={post._id} id="feed-item" className="flex-center" >
                             <Link to={`/post/${post._id}`}>
                                 <Card.Title>{post.itemTitle}</Card.Title>
                                 <Card.Img id="card-img"

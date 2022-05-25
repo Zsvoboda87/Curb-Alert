@@ -6,6 +6,7 @@ import Profile from '../Profile/index.js';
 import PostSingle from './PostSingle.js';
 import UserProfile from './UserProfile';
 import OthersProfile from './OthersProfile'
+import MasterMap from '../Maps/MasterMap'
 
 
 
@@ -14,11 +15,11 @@ function Home() {
     return (
         <Row className="main-row">
             <Col className="profile-section">
-                <Link to={'/'}> 
+                <Link to={'/'}>
                     <div className="header">
-                        
+
                         <img className='logo' src="../images/logo.png" alt="logo" />
-                        
+
                         <h1 className="title">Curb Alert</h1>
 
                     </div>
@@ -33,6 +34,7 @@ function Home() {
                 <Route exact path="/post/:id" component={PostSingle} />
                 <Route exact path="/userprofile" component={UserProfile} />
                 <Route exact path="/userprofile/:username" component={OthersProfile} />
+                <Route exact path="/mastermap" component={MasterMap} />
 
 
             </Col>

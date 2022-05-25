@@ -9,9 +9,6 @@ import {
 export default function DisplayMap(postLat) {
     const x = parseFloat(postLat.postLat)
     const y = parseFloat(postLat.postLng)
-
-
-
     const center = useMemo(() => ({ lat: x, lng: y }), []);
 
     const { isLoaded } = useJsApiLoader({

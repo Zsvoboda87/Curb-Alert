@@ -24,15 +24,20 @@ function Profile() {
         history.push(path);
     }
 
+    const routeMapChange = () => {
+        let path = `/mastermap`;
+        history.push(path);
+    }
+
     return (
         <div className="profile-header">
-            
+
             {loggedIn && userData ? (
                 <>
-                <img className="user-profile-image" src={userData.me.userImage} alt="user-avatar"></img>
-                <div className="username">
-                    <h5>{userData.me.username}</h5>
-                </div>
+                    <img className="user-profile-image" src={userData.me.userImage} alt="user-avatar"></img>
+                    <div className="username">
+                        <h5>{userData.me.username}</h5>
+                    </div>
                 </>
             ) : <img className="profileImage" src="../images/avatar.png" alt="user-avatar"></img>}
 
@@ -40,10 +45,13 @@ function Profile() {
             {loggedIn ? (
                 <>
                     <AddPost />
-                    <Button id="button">Messages</Button>
+                    <Button id="button" onClick={routeMapChange}>
+                        Curb Map
+                    </Button>
                     <Button id="button" onClick={routeChange}>
                         View Profile
                     </Button>
+
                     <Button id="button" onClick={logout}>Logout</Button>
                 </>
             ) : (

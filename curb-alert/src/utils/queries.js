@@ -46,6 +46,8 @@ query  {
       itemTitle
       itemDescription
       itemCategory
+      itemLat
+      itemLng
       imageURL
       createdAt
     }
