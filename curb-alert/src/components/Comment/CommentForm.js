@@ -35,7 +35,7 @@ const CommentForm = ({ postId }) => {
   };
 
   return (
-    <div>
+    <div className="commentform">
       <p
         className={`m-0 ${characterCount === 280 || error ? 'text-error' : ''}`}
       >
@@ -49,11 +49,11 @@ const CommentForm = ({ postId }) => {
         <textarea
           placeholder="Leave a comment on this post"
           value={commentBody}
-          className="form-input col-12 col-md-9"
+          className="comment-form-input col-12 col-md-9"
           onChange={handleChange}
         ></textarea>
 
-        <button className="btn col-12 col-md-3" type="submit">
+        <button className="btn col-12 col-md-3" id="button-singlePost" type="submit">
           Submit
         </button>
       </form>
