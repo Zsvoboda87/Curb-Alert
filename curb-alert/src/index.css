@@ -301,6 +301,26 @@ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 
 }
 
+.commentform{
+  padding: 1%;
+  color: var(--tertiary-color);
+}
+
+.card-header{
+  background-color: var(--tertiary-color);
+  color:var(--tertiary-color);
+}
+
+.card-body{
+  background-color: var(--secondary-color);
+  color: var(--tertiary-color);
+}
+
+.comment-form-input{
+  border-radius: 5px;
+  padding: 1%;
+}
+
 @media screen and (max-width: 900px) {
   #feed-item{
     width: 32vw; 
