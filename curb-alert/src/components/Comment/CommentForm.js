@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { useMutation } from '@apollo/client';
 import { ADD_COMMENT } from '../../utils/mutations';
+import { Card, Button } from 'react-bootstrap';
 
 const CommentForm = ({ postId }) => {
   const [commentBody, setBody] = useState('');
@@ -43,19 +44,19 @@ const CommentForm = ({ postId }) => {
         {error && <span className="ml-2">Something went wrong...</span>}
       </p>
       <form
-        className="flex-row justify-center justify-space-between-md align-stretch"
+        className="flex-center justify-center justify-space-between-md align-stretch"
         onSubmit={handleFormSubmit}
       >
         <textarea
           placeholder="Leave a comment on this post"
           value={commentBody}
-          className="comment-form-input col-12 col-md-9"
+          className="comment-form-input col-12"
           onChange={handleChange}
         ></textarea>
 
-        <button className="btn col-12 col-md-3" id="button-singlePost" type="submit">
+        <Button className="col-9 mt-2" id="button-singlePost" type="submit">
           Submit
-        </button>
+        </Button>
       </form>
 
       {error && <div>Something went wrong...</div>}
